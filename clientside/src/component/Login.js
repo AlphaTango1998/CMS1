@@ -48,7 +48,7 @@ function Login() {
             <div className="col-lg-4"></div>
             <div className="col-lg-4">
                <label>Password</label>
-               <input type="text" 
+               <input type="password" 
                 name="password"
                 onChange={(e)=>onValueChange(e)}
                className="form-control" />
