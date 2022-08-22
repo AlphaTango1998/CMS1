@@ -1,7 +1,7 @@
 import Cmsuser from '../schema/dbschema.js';
 import Userdata from '../schema/userschema.js';
-import productSchema from '../schema/product-schema.js';
 
+import Orderdata from '../schema/orderschema.js';
 import bcrypt from 'bcryptjs';
 
 //register api
@@ -87,3 +87,25 @@ export const getAll = async ( req , res ) =>{
         {  res.status(401).json({ message:error.message })  };
  };
  
+ //order__Data
+ export const getOrder = async ( req , res ) =>{
+    
+    try{
+         const orders= await Orderdata.find();
+         console.log(orders);
+            res.status(201).json(orders);
+        }
+    catch(error)
+        {  res.status(401).json({ message:error.message })  };
+ };
+ //order__Data
+ export const  getOrderData = async ( req , res ) =>{
+    
+    try{
+         const orders= await Orderdata.findById(req.params.id);
+         console.log(orders);
+            res.status(201).json(orders);
+        }
+    catch(error)
+        {  res.status(401).json({ message:error.message })  };
+ };

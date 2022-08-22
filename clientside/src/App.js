@@ -5,6 +5,8 @@ import Home from './component/Home';
 import About from './component/About';
 import LoginUserData from './component/Login_user';
 import Addproduct from './component/Addproduct';
+import Order from './component/Order';
+import ShowOrder from './component/ShowOrder';
 import { BrowserRouter,Routes,Route }from 'react-router-dom';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <Route  path='/loginuser' element={< LoginUserData />}></Route>
         <Route  path='/register' element={ <Register /> } > </Route>
         <Route  path='/about' element={ <About /> } > </Route>
+        <Route  path='/order' element={ <Order /> } > </Route>
+        <Route  path='/ShowOrder/:id' element={< ShowOrder />} > </Route>
         
      </Routes>
      </BrowserRouter>
