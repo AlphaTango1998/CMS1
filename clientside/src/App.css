@@ -7,6 +7,9 @@
   pointer-events: none;
 }
 
+.navbar navbar-expand-lg{
+  background-color:#53bb56
+}
 
 .App-header {
   background-color: #282c34;

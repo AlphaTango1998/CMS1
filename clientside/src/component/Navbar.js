@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <>
       <div className="row">
-        <nav className="navbar navbar-expand-lg  navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-lg  navbar-dark bg-success">
           <div className="col-sm-10">
             <img src={logo} style={bgdata} height="110" />
           </div>
