@@ -52,7 +52,7 @@ const Addproduct = () => {
                                         <td className='td'><input className='textbox' type="text" value={category} onChange={(e) => setCategory(e.target.value)} required={true} placeholder='Category' /></td>
                                     </tr>
                                     <tr className='tr'>
-                                        <td className='td'><input className='textbox' type="text" value={price} onChange={(e) => setPrice(e.target.value)} required={true} placeholder='Price' /></td>
+                                        <td className='td'><input className='textbox' type="text" value={price} onChange={(e) => setPrice(e.target.value)} required={true} placeholder='₹ Price' /></td>
                                         <td className='td'><input className='textbox' type="text" value={stockvalue} onChange={(e) => setStockvalue(e.target.value)} required={true} placeholder='Stock Value' /></td>
                                     </tr>
                                 </tbody>

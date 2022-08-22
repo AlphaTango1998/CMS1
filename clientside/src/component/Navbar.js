@@ -11,7 +11,7 @@ function Navbar() {
       <div className="row">
         <nav className="navbar navbar-expand-lg  navbar-dark bg-success">
           <div className="col-sm-10">
-            <img src={logo} style={bgdata} height="110" />
+            <img alt='logo' src={logo} style={bgdata} height="110" />
           </div>
           <div className="col-sm-2">
             <h3 className="navbar-brand " style={bgdata}>CMS Site</h3>
