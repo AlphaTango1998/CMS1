@@ -1,22 +1,24 @@
 import React from 'react'
+import logo from './Images/rocklee.jpg'
 
 function Navbar() {
-    const bgdata={
-      paddingLeft:"70px"
-    }
-      return (
+  const bgdata = {
+    paddingLeft: "70px"
+  }
+  return (
     <>
-    <div className="row">
-     <nav className="navbar navbar-expand-lg  navbar-dark bg-primary">
-        <div className="col-sm-10">   <h3 className="navbar-brand " style={bgdata}>CMS Site</h3></div>
-        <div className="col-sm-2"></div>
-        
-           
-        
-    </nav>
-    </div>
+      <div className="row">
+        <nav className="navbar navbar-expand-lg  navbar-dark bg-primary">
+          <div className="col-sm-10">
+            <img src={logo} style={bgdata} height="110" />
+            <h3 className="navbar-brand " style={bgdata}>CMS Site</h3></div>
+          <div className="col-sm-2"></div>
 
-   
+
+        </nav>
+      </div>
+
+
     </>
   )
 }
