@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from './Images/rocklee.jpg'
 
 function Navbar() {
   const bgdata = {
@@ -9,12 +8,12 @@ function Navbar() {
   return (
     <>
       <div className="row">
-        <nav className="navbar navbar-expand-lg  navbar-dark bg-success">
+        <nav className="navbar navbar-expand-lg  navbar-dark bg-primary">
           <div className="col-sm-10">
-            <img alt='logo' src={logo} style={bgdata} height="110" />
+          <h3 className="navbar-brand " style={bgdata}>CMS Site</h3>
           </div>
           <div className="col-sm-2">
-            <h3 className="navbar-brand " style={bgdata}>CMS Site</h3>
+           
           </div>
 
 
