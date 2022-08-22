@@ -19,25 +19,25 @@ function Sidebar()
       <div className="position-sticky pt-3  sidebar-sticky">
         <ul className="nav flex-column">
           <li className="nav-item">
-          <NavLink className="fs-5 text-decoration-none" to="/dashboard"> Dashboard</NavLink>
+          <NavLink className="fs-5 text-decoration-none" to="/home"><i className ="fa-solid fa-house-chimney px-3"></i> Dashboard</NavLink>
           </li>
           <li className="nav-item mt-3">
-          <NavLink className="fs-5 text-decoration-none"  to="/product"> Product</NavLink>
+          <NavLink className="fs-5 text-decoration-none"  to="/product"> <i className="fa-solid fa-box px-3"></i> Product</NavLink>
           </li>
           <li className="nav-item mt-3">
-          <NavLink className="fs-5 text-decoration-none"  to="/addproduct">Add Product</NavLink>
+          <NavLink className="fs-5 text-decoration-none"  to="/addproduct"> <i className="fa-solid fa-circle-plus px-3"></i>Add Product</NavLink>
           </li>
           <li className="nav-item mt-3">
-          <NavLink className="fs-5 text-decoration-none"  to="/order">Orders</NavLink>
+          <NavLink className="fs-5 text-decoration-none"  to="/order"> <i className="fa-solid fa-dolly px-3"></i>Orders</NavLink>
           </li>
           <li className="nav-item mt-3">
-          <NavLink className="fs-5 text-decoration-none " to="/loginuser">  User</NavLink>
+          <NavLink className="fs-5 text-decoration-none " to="/loginuser"><i className="fa-solid fa-user px-3"></i>  User</NavLink>
           </li>
           <li className="nav-item mt-3">
-          <NavLink className="fs-5 text-decoration-none"  to="/setting"> Setting</NavLink>
+          <NavLink className="fs-5 text-decoration-none"  to="/setting"> <i className="fa-solid fa-gears px-3"></i>Setting</NavLink>
           </li>
           <li className="nav-item mt-3">
-          <NavLink className="fs-5 text-decoration-none"  to="/logout"> logout</NavLink>
+          <NavLink className="fs-5 text-decoration-none"  to="/logout"> <i className="fa-solid fa-arrow-right-from-bracket px-3"></i>logout</NavLink>
           </li>
           
           
