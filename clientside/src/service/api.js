@@ -68,4 +68,16 @@ export const getAll = async (data) =>{
             console.log(error.message);
         }
     };  
+//Add product component 
+export const productAdd = async (data) =>{
+  try{
+       
+      const result= await axios.post("http://localhost:8000/addproduct",data);
+        //console.log(result);
+        return result;
   
+      }
+      catch(error){
+          console.log(error.message);
+      }
+  };
