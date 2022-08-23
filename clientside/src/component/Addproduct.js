@@ -44,16 +44,34 @@ const Addproduct = () => {
                             <table className='table1 Regitable'>
                                 <tbody>
                                     <tr className='tr'>
-                                        <td className='td'><input className='textbox' type="text" value={name} onChange={(e) => setName(e.target.value)} required={true} placeholder='Name' /></td>
-                                        <td className='td'><input className='textbox' type="text" value={title} onChange={(e) => setTitle(e.target.value)} required={true} placeholder='Title' /></td>
+                                        <td className='td'>
+                                            <input className='textbox' type="text" value={name} onChange={(e) => 
+                                                setName(e.target.value)} required={true} placeholder='Name' />
+                                        </td>
+                                        <td className='td'>
+                                            <input className='textbox' type="text" value={title} onChange={(e) => 
+                                                setTitle(e.target.value)} required={true} placeholder='Title' />
+                                        </td>
                                     </tr>
                                     <tr className='tr'>
-                                        <td className='td'><input className='textbox' type="text" value={id} onChange={(e) => setID(e.target.value)} required={true} placeholder='ID' /></td>
-                                        <td className='td'><input className='textbox' type="text" value={category} onChange={(e) => setCategory(e.target.value)} required={true} placeholder='Category' /></td>
+                                        <td className='td'>
+                                            <input className='textbox' type="text" value={id} onChange={(e) => 
+                                                setID(e.target.value)} required={true} placeholder='ID' />
+                                        </td>
+                                        <td className='td'>
+                                            <input className='textbox' type="text" value={category} onChange={(e) => 
+                                                setCategory(e.target.value)} required={true} placeholder='Category' />
+                                        </td>
                                     </tr>
                                     <tr className='tr'>
-                                        <td className='td'><input className='textbox' type="text" value={price} onChange={(e) => setPrice(e.target.value)} required={true} placeholder='₹ Price' /></td>
-                                        <td className='td'><input className='textbox' type="text" value={stockvalue} onChange={(e) => setStockvalue(e.target.value)} required={true} placeholder='Stock Value' /></td>
+                                        <td className='td'>
+                                            <input className='textbox' type="text" value={price} onChange={(e) => 
+                                                setPrice(e.target.value)} required={true} placeholder='₹ Price' />
+                                        </td>
+                                        <td className='td'>
+                                            <input className='textbox' type="text" value={stockvalue} onChange={(e) => 
+                                                setStockvalue(e.target.value)} required={true} placeholder='Stock Value' />
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
