@@ -10,8 +10,8 @@ function Login_user() {
     const getAllUser = async() =>{
        const user_data = await getAll();
            setUserData(user_data);
-         console.log(user_data)
-        console.log(user_data.data[0].fname)
+        // console.log(user_data)
+        //console.log(user_data.data[0].fname)
         }
 
 
@@ -24,21 +24,19 @@ function Login_user() {
       <div className= "row">
      <div className="col-lg-3"><Sidebar /> </div>
      <div className="col-lg-9"> 
-     <h3 className="text-center">Login user Details </h3>
-     <div>
+          <h3 className="text-center">Login user Details </h3>
+        <div>
     
           { userData?.cod==='404' ? (
-                     <div className="row mt-5">
+                     
                      <div className="card text-center">
                      <div className="card-header">
                           data not found
+                     </div>                
                      </div>
-                 </div>
-                 
-                 
-                 </div>
 
            ):(  
+            
             <table className="table">
            
            <thead>
@@ -51,6 +49,7 @@ function Login_user() {
                <th >DOB</th>
                </tr>
            </thead>
+           
 
            <tbody>
                {
