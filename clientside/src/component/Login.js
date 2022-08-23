@@ -22,7 +22,8 @@ function Login() {
     e.preventDefault();
     console.log("user add", user);
     const response= await getUser(user);
-    setCookie('jwtoken',response.data.token, { path: '/' });
+    
+    setCookie('jwtoken',response.data.token, { path: '/', maxAge:86400 });
      //console.log(cookies) 
     //console.log(response.data.token); 
     
