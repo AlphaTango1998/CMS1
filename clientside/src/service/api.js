@@ -29,7 +29,7 @@ export const getUser = async (data) =>{
 export const getAll = async (data) =>{
         try{
              
-            const result= await axios.get("http://localhost:8000/login_data");
+            const result= await axios.get("http://localhost:8000/login_data",{withCredentials:true});
           // console.log(result)
             return result;
         

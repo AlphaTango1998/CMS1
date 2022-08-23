@@ -55,13 +55,16 @@ export const getUser = async ( req , res ) =>
     if(userpresent){
     const isMatch = await bcrypt.compare(password , userpresent.password);
     const token = await userpresent.generateAuthToken();
-          
-        if(!isMatch)
+          // console.log(token); 
+         // res.cookie("jwtoken",token);
+       
+         if(!isMatch)
         {
             return res.status(422).json({error:"invalied crenditial"});
         }
         else{
-           return   res.status(201).json({message:"user signin successfully"});
+            
+           return   res.status(201).json({message:"user signin successfully",token});
         }
     }
     else{
@@ -77,10 +80,11 @@ export const getUser = async ( req , res ) =>
 };
 //user__Data
 export const getAll = async ( req , res ) =>{
+   // console.log("token",req.token,"user-->",req.rootUser,"userId--->",req.userID);
     
     try{
          const users= await Userdata.find();
-         console.log(users);
+        // console.log(users);
             res.status(201).json(users);
         }
     catch(error)

@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import Navbar from './Navbar'
 import { Link,useNavigate } from 'react-router-dom';
 import  { getUser } from '../service/api';
+import { useCookies } from 'react-cookie';
 function Login() {
   const initial={
     email:'',
@@ -9,6 +10,7 @@ function Login() {
   
   }
   const[user,setUser]=useState(initial);
+  const [cookies, setCookie] = useCookies('');
   const navigate= useNavigate();
 
   const onValueChange = (e) =>{
@@ -19,8 +21,12 @@ function Login() {
   {
     e.preventDefault();
     console.log("user add", user);
-     await getUser(user);
-     navigate('/home');
+    const response= await getUser(user);
+    setCookie('jwtoken',response.data.token, { path: '/' });
+     //console.log(cookies) 
+    //console.log(response.data.token); 
+    
+    navigate('/home');
     
   }
   return (

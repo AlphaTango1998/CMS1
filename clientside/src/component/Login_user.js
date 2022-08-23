@@ -2,14 +2,19 @@ import React,{  useState,useEffect } from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import  { getAll } from '../service/api';
+import { useCookies } from 'react-cookie';
 function Login_user() {
     const [userData, setUserData] = useState({"cod":"404"});
-    useEffect(()=>{
+    const [cookies, setCookie] = useCookies(['user']);
+    let token_value=cookies.jwtoken;
+       useEffect(()=>{
         getAllUser();
       },[]);
     const getAllUser = async() =>{
-       const user_data = await getAll();
+      
+       const user_data = await getAll( token_value);
            setUserData(user_data);
+
         // console.log(user_data)
         //console.log(user_data.data[0].fname)
         }
