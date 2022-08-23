@@ -40,7 +40,7 @@ const Addproduct = () => {
 
                     <div className='Register'>
                         <center>
-                            <h1>Add Product</h1>
+                            <h2 className='h2'>Add Product</h2>
                             <table className='table1 Regitable'>
                                 <tbody>
                                     <tr className='tr'>
