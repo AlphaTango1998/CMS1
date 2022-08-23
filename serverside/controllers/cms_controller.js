@@ -1,6 +1,6 @@
 import Cmsuser from '../schema/dbschema.js';
 import Userdata from '../schema/userschema.js';
-
+import Product from '../schema/productschema.js'
 import Orderdata from '../schema/orderschema.js';
 import bcrypt from 'bcryptjs';
 
@@ -113,3 +113,30 @@ export const getAll = async ( req , res ) =>{
     catch(error)
         {  res.status(401).json({ message:error.message })  };
  };
+//add product api
+export const addProduct = async ( req , res ) =>
+{
+    
+    const {  pname,ptitle,pid,pcategory,price,pstockvalue } = req.body;
+    //check filed is empty or not
+    console.log( pname,ptitle,pid,pcategory,price,pstockvalue  );
+    if(!pname || !ptitle || !pid || !pcategory || !price || !pstockvalue)
+    {
+        return res.status(422).json({error:"plz filled the fields properly"});
+    }
+    //find email not present already
+   try{
+       const newProduct =  new Product({name:pname,title:ptitle,id:pid,category:pcategory,price:price,stockvalue:pstockvalue  });    
+                console.log(newProduct);
+
+          await newProduct.save();
+        res.status(201).json(newProduct);
+   
+        
+   }
+   catch(error){
+    console.log(error);
+   }
+    
+
+};

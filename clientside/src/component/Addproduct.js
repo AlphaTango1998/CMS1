@@ -1,32 +1,35 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
-
+import { productAdd} from '../service/api';
+import { useNavigate } from 'react-router-dom';
 
 
 const Addproduct = () => {
-    const [name, setName] = useState("");
-    const [title, setTitle] = useState("");
-    const [id, setID] = useState("");
-    const [category, setCategory] = useState("");
-    const [price, setPrice] = useState("");
-    const [stockvalue, setStockvalue] = useState("");
-
-
-    const collectData = async () => {
-        console.warn(name, title, id, category, price, stockvalue)
-        let result = await fetch('http://localhost:8000/addproduct', {
-            method: 'post',
-            body: JSON.stringify({ name, title, id, category, price, stockvalue }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        result = await result.json()
-        localStorage.setItem("user", JSON.stringify(result.result));
-    }
-
+    const initial = {
+        pname: '',
+        ptitle: '',
+        pid: '',
+        pcategory:'',
+        price:'',
+        pstockvalue:''
+    
+      }
+      const [product, setProduct] = useState(initial);
+      const navigate = useNavigate();
+      const onValueChange = (e) => {
+        setProduct({ ...product, [e.target.name]: e.target.value })
+    
+      };
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+       // console.log("product add", product);
+        await productAdd(product);
+        navigate('/home');
+    
+      }
+   
 
     return (
         <>
@@ -37,30 +40,93 @@ const Addproduct = () => {
             <div className="row">
                 <div className="col-lg-3"><Sidebar /> </div>
                 <div className="col-lg-9">
+                <form onSubmit={handleSubmit} >
 
-                    <div className='Register'>
-                        <center>
-                            <h1>Add Product</h1>
-                            <table className='Regitable'>
-                                <tbody>
-                                    <tr>
-                                        <td><input className='textbox' type="text" value={name} onChange={(e) => setName(e.target.value)} required="true" placeholder='Name' /></td>
-                                        <td><input className='textbox' type="text" value={title} onChange={(e) => setTitle(e.target.value)} required="true" placeholder='Title' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input className='textbox' type="text" value={id} onChange={(e) => setID(e.target.value)} required="true" placeholder='ID' /></td>
-                                        <td><input className='textbox' type="text" value={category} onChange={(e) => setCategory(e.target.value)} required="true" placeholder='Category' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input className='textbox' type="text" value={price} onChange={(e) => setPrice(e.target.value)} required="true" placeholder='Price' /></td>
-                                        <td><input className='textbox' type="text" value={stockvalue} onChange={(e) => setStockvalue(e.target.value)} required="true" placeholder='Stock Value' /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button className='button regibutton' onClick={collectData}>Submit</button>
-                        </center>
-                    </div>
+<div className="row mt-5">
+  <div className="col-lg-4"></div>
+  <div className="col-lg-4">
+    <label>Productname</label>
+    <input type="text"
+      onChange={(e) => onValueChange(e)}
+      name="pname"
+      className="form-control" />
+  </div>
+  <div className="col-lg-4"></div>
+</div>
 
+<div className="row mt-5">
+  <div className="col-lg-4"></div>
+  <div className="col-lg-4">
+    <label>Product Title</label>
+    <input type="text"
+      onChange={(e) => onValueChange(e)}
+      name="ptitle"
+      className="form-control" />
+  </div>
+  <div className="col-lg-4"></div>
+</div>
+<div className="row mt-5">
+  <div className="col-lg-4"></div>
+  <div className="col-lg-4">
+    <label>Product Id</label>
+    <input type="text"
+      onChange={(e) => onValueChange(e)}
+      name="pid"
+      className="form-control" />
+  </div>
+  <div className="col-lg-4"></div>
+</div>
+
+<div className="row mt-5">
+  <div className="col-lg-4"></div>
+  <div className="col-lg-4">
+    <label>Product Category</label>
+    <input type="text"
+      onChange={(e) => onValueChange(e)}
+      name="pcategory"
+      className="form-control" />
+  </div>
+  <div className="col-lg-4"></div>
+</div>
+
+<div className="row mt-5">
+  <div className="col-lg-4"></div>
+  <div className="col-lg-4">
+    <label>Price</label>
+    <input type="text"
+      onChange={(e) => onValueChange(e)}
+      name="price"
+      className="form-control" />
+  </div>
+  <div className="col-lg-4"></div>
+</div>
+
+<div className="row mt-5">
+  <div className="col-lg-4"></div>
+  <div className="col-lg-4">
+    <label>Stockvalue</label>
+    <input type="text"
+      onChange={(e) => onValueChange(e)}
+      name="pstockvalue"
+      className="form-control" />
+  </div>
+  <div className="col-lg-4"></div>
+</div>
+
+<div className="row mt-3">
+  <div className="col-lg-5"></div>
+  <div className="col-lg-2">
+    <input
+      type="submit"
+      value="Submit Here"
+      className="btn btn-primary"
+    />
+  </div>
+  <div className="col-lg-5"></div>
+</div>
+
+</form>
+                  
                 </div>
             </div>
         </>
