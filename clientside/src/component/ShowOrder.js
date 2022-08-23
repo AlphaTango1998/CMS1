@@ -10,7 +10,8 @@ function ShowOrder() {
    // console.log(id);
     useEffect(()=>{
         getAllOrder();
-      },[]);
+      });
+      
     const getAllOrder = async() =>{
        const order_data = await getorderData(id);
            setData(order_data);
