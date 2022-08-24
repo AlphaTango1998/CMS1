@@ -1,7 +1,10 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
+import { useCookies } from 'react-cookie';
 function Home() {
+  const [cookies, setCookie] = useCookies(['user']);
+    let token_value=cookies.jwtoken;
   return (
     <>
       <div style={{"background":"#f2edf3"}}> 
@@ -102,8 +105,8 @@ function Home() {
          </div>
       </div>
       </div>
-    </>
-      )
+</>
+);
 }
 
 export default Home
