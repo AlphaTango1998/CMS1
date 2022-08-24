@@ -32,7 +32,7 @@ cmsSchema.pre('save',async function (next) {
 //we are generate token
 cmsSchema.methods.generateAuthToken = async function(){
     try{
-        let token = jwt.sign({_id:this._id}, "MYNAMEISSHUBHAMDHOOTFROMJODHPUR" );
+        let token = jwt.sign({_id:this._id}, "MYNAMEISSHUBHAMDHOOTFROMJODHPUR",{expiresIn: '1d'} );
         this.tokens = this.tokens.concat({token:token});
        await this.save()
        

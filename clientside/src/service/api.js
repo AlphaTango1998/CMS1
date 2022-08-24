@@ -29,7 +29,7 @@ export const getUser = async (data) =>{
 export const getAll = async (data) =>{
         try{
              
-            const result= await axios.get("http://localhost:8000/login_data",{withCredentials:true});
+            const result= await axios.get("http://localhost:8000/login_data" ,{withCredentials:true} );
           // console.log(result)
             return result;
         
@@ -44,7 +44,7 @@ export const getAll = async (data) =>{
   export const getOrder = async () =>{
     try{
          
-        const result= await axios.get("http://localhost:8000/order_data");
+        const result= await axios.get("http://localhost:8000/order_data",{withCredentials:true});
           //console.log(result)
         return result;
     
@@ -59,7 +59,7 @@ export const getAll = async (data) =>{
   export const  getorderData = async (id) =>{
     try{
          
-        const result= await axios.get(`http://localhost:8000/order_data/${id}`);
+        const result= await axios.get(`http://localhost:8000/order_data/${id}`,{withCredentials:true});
           //console.log(result)
         return result;
     
@@ -72,7 +72,7 @@ export const getAll = async (data) =>{
 export const productAdd = async (data) =>{
   try{
        
-      const result= await axios.post("http://localhost:8000/addproduct",data);
+      const result= await axios.post("http://localhost:8000/addproduct",{withCredentials:true},data);
         //console.log(result);
         return result;
   
