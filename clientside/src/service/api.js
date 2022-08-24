@@ -72,7 +72,7 @@ export const getAll = async (data) =>{
 export const productAdd = async (data) =>{
   try{
        
-      const result= await axios.post("http://localhost:8000/addproduct",{withCredentials:true},data);
+      const result= await axios.post("http://localhost:8000/addproduct",data,{withCredentials:true});
         //console.log(result);
         return result;
   

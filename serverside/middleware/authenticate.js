@@ -4,7 +4,7 @@ import Cmsuser from '../schema/dbschema.js';
 const Authenticate =  async (req, res, next)  => {
     try{
     const token = req.cookies.jwtoken;
-    //console.log(token)
+   // console.log(req);
     const verifyToken =jwt.verify(token,`MYNAMEISSHUBHAMDHOOTFROMJODHPUR`);
      const rootUser = await Cmsuser.findOne({_id:verifyToken._id , "tokens.token" : token });
      if(!rootUser){

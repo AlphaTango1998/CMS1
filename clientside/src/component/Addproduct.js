@@ -26,7 +26,7 @@ const Addproduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("product add", product);
+    //console.log(token_value);
     await productAdd(product, token_value);
 
   }
@@ -43,7 +43,7 @@ const Addproduct = () => {
         <div className="col-lg-9">
 
           <div className="Register">
-            
+            <form onSubmit={handleSubmit}>
             <center>
             <h1>Add Product</h1>
               <table className='Regitable'>
@@ -63,8 +63,9 @@ const Addproduct = () => {
                 </tbody>
               </table>
 
-              <input type="submit" onClick={handleSubmit} value="Submit" className="button regibutton" />
+              <input type="submit"  value="Submit" className="button regibutton" />
             </center>
+            </form>
           </div>
 
 
