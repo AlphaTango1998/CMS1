@@ -8,10 +8,11 @@ function Sidebar() {
     paddingLeft: "100px"
 
   }
+  
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
-    navigate('/signup')
+    navigate('/')
 
   }
 
