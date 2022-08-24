@@ -1,5 +1,4 @@
 import  jwt  from "jsonwebtoken";
-//import User from  "../schema/dbschema.js";
 import Cmsuser from '../schema/dbschema.js';
 
 const Authenticate =  async (req, res, next)  => {
@@ -9,7 +8,7 @@ const Authenticate =  async (req, res, next)  => {
     const verifyToken =jwt.verify(token,`MYNAMEISSHUBHAMDHOOTFROMJODHPUR`);
      const rootUser = await Cmsuser.findOne({_id:verifyToken._id , "tokens.token" : token });
      if(!rootUser){
-         throw new Error("User not FOund");
+         throw new Error("Unauthorised user");
      }   
         req.token = token;
         req.rootUser =rootUser.name;

@@ -96,7 +96,7 @@ export const getAll = async ( req , res ) =>{
     
     try{
          const orders= await Orderdata.find();
-         console.log(orders);
+        // console.log(orders);
             res.status(201).json(orders);
         }
     catch(error)
@@ -107,7 +107,7 @@ export const getAll = async ( req , res ) =>{
     
     try{
          const orders= await Orderdata.findById(req.params.id);
-         console.log(orders);
+        // console.log(orders);
             res.status(201).json(orders);
         }
     catch(error)
