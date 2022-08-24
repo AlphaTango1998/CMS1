@@ -1,5 +1,4 @@
 import express from "express";
-import { addUser, getUser, getAll, getOrder, getOrderData} from "../controllers/cms_controller.js";
 import Authenticate from "../middleware/authenticate.js";
 
 import { addUser, getUser, getAll, getOrder, getOrderData,addProduct} from "../controllers/cms_controller.js";
