@@ -3,10 +3,13 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import  { getOrder } from '../service/api';
 import {Link  } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 function Order() {
 
     const [orderData, setOrderData] = useState( {"cod":"404"} );
+    const [cookies, setCookie] = useCookies(['user']);
+    let token_value=cookies.jwtoken;
     const imgpath="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLPSwWEGlf4bXeS8c32qyuDS6W6X9QfbKXw&usqp=CAU";
    
     useEffect(()=>{
@@ -14,7 +17,7 @@ function Order() {
       },[]);
    
       const getAllOrder = async() =>{
-       const order_data = await getOrder();
+       const order_data = await getOrder(token_value);
            setOrderData(order_data);
        //  console.log(order_data)
         //console.log(order_data.data)
