@@ -69,3 +69,17 @@ export const getAll = async (data) =>{
         }
     };  
   
+     //get total number of order
+          
+  export const totalOrder = async () =>{
+    try{
+         
+        const result= await axios.get(`http://localhost:8000/home`,{withCredentials:true});
+          //console.log(result)
+        return result;
+    
+        }
+        catch(error){
+            console.log(error.message);
+        }
+    };  

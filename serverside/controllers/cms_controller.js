@@ -113,3 +113,15 @@ export const getAll = async ( req , res ) =>{
     catch(error)
         {  res.status(401).json({ message:error.message })  };
  };
+
+ //order__Data
+ export const  totalOrder = async ( req , res ) =>{
+    
+    try{
+         const orders= await Orderdata.find().count();
+        // console.log(orders);
+            res.status(201).json(orders);
+        }
+    catch(error)
+        {  res.status(401).json({ message:error.message })  };
+ };

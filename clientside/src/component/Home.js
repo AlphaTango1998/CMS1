@@ -1,10 +1,21 @@
-import React from 'react'
+import React ,{useEffect,useState} from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import { useCookies } from 'react-cookie';
+import  { totalOrder } from '../service/api';
 function Home() {
   const [cookies, setCookie] = useCookies(['user']);
+  const [count,setCount] = useState('');
   let token_value=cookies.jwtoken;
+  //console.log(cookies.jwtoken);
+  useEffect(()=>{
+    total_user_data();
+  });
+  const total_user_data = async () =>{
+    const total_order = await totalOrder( token_value);
+    console.log(total_order);
+    setCount(total_order.data)
+  }
   return (
     <>
       <div style={{"background":"#f2edf3"}}> 
@@ -37,7 +48,7 @@ function Home() {
               <div className="card text-white "style={{"background":"#1bcfb4"}} >
                       <div className="card-body p-4">
                           <h4 className="card-title">Total Order <i className="fa-regular fa-diamond px-5"></i> </h4>
-                          <p className="h3 p-2">  20</p>
+                          <p className="h3 p-2"> { count }</p>
                               <p className="card-text">Total Order Of Month</p>
                        </div>
               </div>
