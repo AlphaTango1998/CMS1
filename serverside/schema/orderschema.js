@@ -5,7 +5,7 @@ const orderSchema = new mongoose.Schema({
     productname:String,
     quantity:String,
     price:String,
-    totalamount:String,
+    totalamount:Number,
     phonenumber:String,
     
 });

@@ -1,5 +1,4 @@
 import  jwt  from "jsonwebtoken";
-//import User from  "../schema/dbschema.js";
 import Cmsuser from '../schema/dbschema.js';
 
 const Authenticate =  async (req, res, next)  => {
