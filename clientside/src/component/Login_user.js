@@ -33,11 +33,11 @@ function Login_user() {
           <div className="col-lg-9">
             <h3 className="text-center">Login user Details </h3>
             <div>
-              {userData?.cod === "404" ? (
+             
                 <div className="card text-center">
                   <div className="card-header">data not found</div>
                 </div>
-              ) : (
+             
                 <table className="table">
                   <thead>
                     <tr>
@@ -63,7 +63,7 @@ function Login_user() {
                     ))}
                   </tbody>
                 </table>
-              )}
+          
             </div>
           </div>
         </div>
