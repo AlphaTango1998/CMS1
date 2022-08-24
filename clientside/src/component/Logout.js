@@ -9,6 +9,7 @@ function Logout() {
     });
 
     const delete_cookies = ()=>{
+        console.log("cookies delete")
         removeCookie("jwtoken");
         window.location.reload(false);
         navigate('/');
