@@ -18,7 +18,7 @@ const Addproduct = () => {
 
   }
   const [product, setProduct] = useState(initial);
- 
+
   const onValueChange = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value })
 
@@ -38,29 +38,40 @@ const Addproduct = () => {
       </div>
       <div className="row">
         <div className="col-lg-3"><Sidebar /> </div>
-       </div>
-        <div className="Register">
-        <form onSubmit={handleSubmit} >
-            <table className='Regitable'>
-              <tr className='tr'>
-                <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pname" className="form-control" >Productname</input></td>
-                <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="ptitle" className="form-control" >Product Title</input></td>
-              </tr>
-              <tr className='tr'>
-                <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pid" className="form-control" >Product Id</input></td>
-                <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pcategory" className="form-control" >Product Category</input></td>
-              </tr>
-              <tr className='tr'>
-                <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="price" className="form-control" >Price</input></td>
-                <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pstockvalue" className="form-control" >Stockvalue</input></td>
-              </tr>
-            </table>
+
+
+        <div className="col-lg-9">
+
+          <div className="Register">
+            
             <center>
-              <input type="submit" value="Submit Here" className="btn btn-primary" />
+            <h1>Add Product</h1>
+              <table className='Regitable'>
+                <tbody>
+                  <tr className='tr'>
+                    <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pname" className="form-control" placeholder="Productname" /></td>
+                    <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="ptitle" className="form-control" placeholder="Product Title" /></td>
+                  </tr>
+                  <tr className='tr'>
+                    <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pid" className="form-control" placeholder='Product Id' /></td>
+                    <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pcategory" className="form-control" placeholder='Product Category' /></td>
+                  </tr>
+                  <tr className='tr'>
+                    <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="price" className="form-control" placeholder='Price' /></td>
+                    <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pstockvalue" className="form-control" placeholder='Stockvalue' /></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <input type="submit" onClick={handleSubmit} value="Submit" className="button regibutton" />
             </center>
-          </form>
+          </div>
+
+
+
+
         </div>
-      
+      </div>
     </>
   )
 }
