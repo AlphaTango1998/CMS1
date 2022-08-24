@@ -105,11 +105,11 @@
 }
 .regibutton {
   background-color: white;
-  color: black;
+  color: rgba(0, 0, 0, 0.289);
   border: 3px solid #555555;
 }
 
 .regibutton:hover {
-  background-color: #555555;
+  background-color: #0d6efd;
   color: white;
 }
