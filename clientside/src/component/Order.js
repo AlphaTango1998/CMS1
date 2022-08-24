@@ -35,7 +35,6 @@ function Order() {
    <div className="col-lg-9">  <h3 className="text-center"> User  Order Details </h3>
      <div>
     
-          { orderData?.cod==='404' ? (
                      <div className="row mt-5">
                      <div className="card text-center">
                      <div className="card-header">
@@ -46,7 +45,7 @@ function Order() {
                  
                  </div>
 
-           ):( 
+        
 
             <div>
                {
@@ -73,7 +72,7 @@ function Order() {
        
          </div>
 
-                   ) }
+             
 
         
     

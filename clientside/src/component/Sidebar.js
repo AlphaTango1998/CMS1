@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink} from 'react-router-dom';
+import { NavLink,useNavigate} from 'react-router-dom';
 function Sidebar() {
   const bgbody = {
     minHeight: "100vh",
@@ -8,8 +8,14 @@ function Sidebar() {
     paddingLeft: "100px"
 
   }
- 
- 
+  
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.clear();
+    navigate('/')
+
+  }
+
   return (
     <>
     
