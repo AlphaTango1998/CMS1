@@ -8,6 +8,7 @@ import LoginUserData from './component/Login_user';
 import Addproduct from './component/Addproduct';
 import Order from './component/Order';
 import ShowOrder from './component/ShowOrder';
+import Logout from './component/Logout';
 import { BrowserRouter,Routes,Route }from 'react-router-dom';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         <Route  path='/about' element={ <About /> } > </Route>
         <Route  path='/order' element={ <Order /> } > </Route>
         <Route  path='/ShowOrder/:id' element={< ShowOrder />} > </Route>
-        
+        <Route  path='/logout' element={ < Logout /> } > </Route>
      </Routes>
      </BrowserRouter>
  

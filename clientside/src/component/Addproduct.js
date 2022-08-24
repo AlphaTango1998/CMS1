@@ -3,9 +3,12 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import { productAdd} from '../service/api';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 
 const Addproduct = () => {
+  const [cookies, setCookie] = useCookies(['user']);
+  let token_value=cookies.jwtoken;
     const initial = {
         pname: '',
         ptitle: '',
@@ -25,7 +28,7 @@ const Addproduct = () => {
       const handleSubmit = async (e) => {
         e.preventDefault();
        // console.log("product add", product);
-        await productAdd(product);
+        await productAdd(product,token_value);
         navigate('/home');
     
       }
