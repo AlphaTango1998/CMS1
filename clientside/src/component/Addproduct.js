@@ -5,8 +5,10 @@ import { productAdd } from '../service/api';
 import { useCookies } from 'react-cookie';
 
 
+
 const Addproduct = () => {
   const [cookies, setCookie] = useCookies(['user']);
+  
   let token_value = cookies.jwtoken;
   const initial = {
     pname: '',
@@ -28,6 +30,7 @@ const Addproduct = () => {
     e.preventDefault();
     //console.log(token_value);
     await productAdd(product, token_value);
+    
 
   }
 

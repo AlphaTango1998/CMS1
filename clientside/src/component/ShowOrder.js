@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import  { getorderData } from '../service/api';
 import { useCookies } from 'react-cookie';
 function ShowOrder() {
-    const [oneData,setData] = useState({"cod":"404"});
+    const [oneData,setData] = useState();
     const [cookies, setCookie] = useCookies(['user']);
     let token_value=cookies.jwtoken;
     const imgpath="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLPSwWEGlf4bXeS8c32qyuDS6W6X9QfbKXw&usqp=CAU";
@@ -14,10 +14,11 @@ function ShowOrder() {
     useEffect(()=>{
         getAllOrder();
       },[]);
-    const getAllOrder = async() =>{
+
+      const getAllOrder = async() =>{
        const order_data = await getorderData(id,token_value);
-           setData(order_data);
-     //    console.log(order_data)
+       setData(order_data.data);
+      console.log(order_data.data)
       //  console.log(oneData.data.username)
         }
   return (
@@ -30,7 +31,7 @@ function ShowOrder() {
      
      
      <div className="col-lg-9"> 
-     { oneData?.cod==='404' ? (
+     { !oneData ? (
                      <div className="row mt-5">
                      <div className="card text-center">
                      <div className="card-header">
@@ -51,11 +52,11 @@ function ShowOrder() {
             <div className="col-lg-6 p-3 ">
                                     <h3 className="px-5 mx-5 mb-3"> Product Data </h3>
                                    <h6><p >Product Id : NoteBook-101 </p>
-                                     <p >Product Name : { oneData.data.productname } </p>
+                                     <p >Product Name : { oneData.productname } </p>
                                      <p >Product Title : Fair Paper Notebook  </p>
-                                     <p >Product Quantity: { oneData.data.quantity } </p>
-                                     <p >Product Price: { oneData.data.price } </p>
-                                     <p >Total Amount: {oneData.data.quantity * oneData.data.price   }   </p>
+                                     <p >Product Quantity: { oneData.quantity } </p>
+                                     <p >Product Price: { oneData.price } </p>
+                                     <p >Total Amount: {oneData.quantity * oneData.price   }   </p>
                                      <p >Product Description:  * Pack Of 4 - Single Line Notebook,
                                           <br /> 72,Pages, 240 mm x 180 mm
                                            <br /> Notebooks for every subject for hassle-free note-taking during classes or lectures.
@@ -74,8 +75,8 @@ function ShowOrder() {
 
           <div className="row p-3">
             <div className="col-lg-6">
-               <h6>    <p > User Name:   { oneData.data.username } </p>
-                       <p > Phone Number: { oneData.data.phonenumber } </p>
+               <h6>    <p > User Name:   { oneData.username } </p>
+                       <p > Phone Number: { oneData.phonenumber } </p>
                 </h6>
              </div>
               <div className="col-lg-6">
