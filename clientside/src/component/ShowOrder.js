@@ -6,6 +6,7 @@ import { getorderData } from '../service/api';
 import { useCookies } from 'react-cookie';
 function ShowOrder() {
   const [oneData, setData] = useState({ "cod": "404" });
+  // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(['user']);
   let token_value = cookies.jwtoken;
   const imgpath = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLPSwWEGlf4bXeS8c32qyuDS6W6X9QfbKXw&usqp=CAU";
@@ -31,7 +32,7 @@ function ShowOrder() {
 
         <div className="col-lg-9">
 
-          {oneData?.cod === '404' ? (
+          {oneData ? (
             <div className="row mt-5">
               <div className="card text-center">
                 <div className="card-header">

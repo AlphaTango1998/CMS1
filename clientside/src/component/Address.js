@@ -39,7 +39,7 @@ function Address() {
           <div className="col-lg-9">
             <h3 className="text-center">Addresses </h3>
             <div>
-              {addressData?.cod === "404" ? (
+              {addressData ? (
                 <div className="row mt-5">
                   <div className="card text-center">
                     <div className="card-header">data not found</div>
