@@ -6,6 +6,7 @@ import { useCookies } from 'react-cookie';
 
 
 const Addproduct = () => {
+  // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(['user']);
   let token_value = cookies.jwtoken;
   const initial = {
