@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-import { deleteAddress, getAddress } from "../service/api";
+import { deleteAddress, getAddress,getAll } from "../service/api";
 import { Link } from "react-router-dom";
 function Address() {
   const [addressData, setAddress] = useState({ cod: "404" });
+  const [userData, setUser] = useState({ cod: "404" });
   useEffect(() => {
     getAllAddress();
+    getAllUsers();
   }, []);
   const getAllAddress = async () => {
     const address_data = await getAddress();
@@ -15,15 +17,13 @@ function Address() {
     //console.log(address_data.data[0].fname);
   };
 
-  // useEffect(() => {
-  //   getAllUsers();
-  // }, []);
-  // const getAllUsers = async () => {
-  //   const user_data = await getAll();
-  //   setAddress(user_data);
-  //  console.log(user_data);
-  //   //console.log(address_data.data[0].fname);
-  // };
+ 
+  const getAllUsers = async () => {
+    const user_data = await getAll();
+    setUser(user_data);
+   console.log(user_data);
+    console.log(user_data.data[0].fname);
+  };
 
   const deleteAddressDetail = async (id) =>{
     await deleteAddress(id);
