@@ -8,7 +8,15 @@ import LoginUserData from './component/Login_user';
 import Addproduct from './component/Addproduct';
 import Order from './component/Order';
 import ShowOrder from './component/ShowOrder';
+
+import Setting from './component/Setting';
+import Address from './component/Address';
+import AddressDetail from './component/AddressDetail';
+import EditAddress from './component/EditAddress';
+
 import Logout from './component/Logout';
+
+
 import { BrowserRouter,Routes,Route }from 'react-router-dom';
 
 function App() {
@@ -24,7 +32,14 @@ function App() {
         <Route  path='/about' element={ <About /> } > </Route>
         <Route  path='/order' element={ <Order /> } > </Route>
         <Route  path='/ShowOrder/:id' element={< ShowOrder />} > </Route>
+
+        <Route  path='/Setting' element={< Setting />}></Route>
+        <Route  path='/Address' element={< Address />}></Route>
+        <Route  path='/AddressDetail/:id' element={< AddressDetail />}></Route>
+        <Route  path='/EditAddress/:id' element={< EditAddress />}></Route>
+
         <Route  path='/logout' element={ < Logout /> } > </Route>
+
      </Routes>
      </BrowserRouter>
  

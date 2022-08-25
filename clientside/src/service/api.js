@@ -81,49 +81,66 @@ export const productAdd = async (data) =>{
           console.log(error.message);
       }
   };
+
+
+
+  //Admin Login Data
+export const getAdmin = async (data) => {
   
-     //get total number of order
-          
-  export const totalOrder = async () =>{
+  try {
+    const result = await axios.get("http://localhost:8000/setting");
+    // console.log(result)
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+// All Addresses
+export const getAddress = async (data) => {
+  
+  try {
+    const result = await axios.get("http://localhost:8000/Address");
+    // console.log(result)
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+
+// Address detail
+export const getAddressDetail = async (id) => {
+  
+  try {
+    const result = await axios.get(`http://localhost:8000/AddressDetail/${id}`);
+    // console.log(result)
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+//edit address
+export const editAddress = async (address,id) =>{
+  try{
+       
+      return await axios.put(`http://localhost:8000/EditAddress/${id}`,address);
+      }
+  catch(error){
+      console.log(error.message);
+  }
+  };
+
+
+  export const deleteAddress = async (id) =>{
     try{
          
-        const result= await axios.get(`http://localhost:8000/home/order`,{withCredentials:true});
-      //  console.log(result)
-        return result;
-    
+        return await axios.delete(`http://localhost:8000/Address/${id}`);
         }
-        catch(error){
-            console.log(error.message);
-        }
-    };  
+    catch(error){
+        console.log(error.message);
+    }
+    }; 
 
-     //get total number of user
-          
-     export const totalUser = async () =>{
-      try{
-           
-          const result1= await axios.get(`http://localhost:8000/home/user`,{withCredentials:true});
-        //  console.log(result)
-          return result1;
-      
-          }
-          catch(error){
-              console.log(error.message);
-          }
-      };  
-   //get total sales of system
-          
-   export const totalSales = async () =>{
-    try{
-         
-        const result2= await axios.get(`http://localhost:8000/home/sales`,{withCredentials:true});
-      //  console.log(result)
-        return result2;
-    
-        }
-        catch(error){
-            console.log(error.message);
-        }
-    };  
 
-   
