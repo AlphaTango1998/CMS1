@@ -172,4 +172,14 @@ export const totalSales = async (req, res) => {
     catch (error) { res.status(401).json({ message: error.message }) };
 };
 
+export const getAdmin = async (req, res) => {
+    try {
+      const users = await Cmsuser.find();
+      console.log(users);
+      res.status(201).json(users);
+    } catch (error) {
+      res.status(401).json({ message: error.message });
+    }
+  };
+  
 

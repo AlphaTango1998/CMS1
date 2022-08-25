@@ -125,5 +125,19 @@ export const productAdd = async (data) =>{
             console.log(error.message);
         }
     };  
+ //get admin data 
+          
+ export const getAdmin = async () =>{
+  try{
+       
+      const result2= await axios.get(`http://localhost:8000/setting`,{withCredentials:true});
+    //  console.log(result)
+      return result2;
+  
+      }
+      catch(error){
+          console.log(error.message);
+      }
+  };  
 
    
