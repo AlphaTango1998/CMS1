@@ -5,8 +5,10 @@ import { deleteAddress, getAddress } from "../service/api";
 import { Link } from "react-router-dom";
 function Address() {
   const [addressData, setAddress] = useState({ cod: "404" });
+ 
   useEffect(() => {
     getAllAddress();
+  
   }, []);
   const getAllAddress = async () => {
     const address_data = await getAddress();
@@ -15,15 +17,6 @@ function Address() {
     //console.log(address_data.data[0].fname);
   };
 
-  // useEffect(() => {
-  //   getAllUsers();
-  // }, []);
-  // const getAllUsers = async () => {
-  //   const user_data = await getAll();
-  //   setAddress(user_data);
-  //  console.log(user_data);
-  //   //console.log(address_data.data[0].fname);
-  // };
 
   const deleteAddressDetail = async (id) =>{
     await deleteAddress(id);
@@ -73,8 +66,8 @@ function Address() {
                     {addressData.data.map((value, id) => (
                       <tr key={id}>
                         <td> *</td>
-                        <td> {value.name} </td>
-                        <td> {value.phone} </td>
+                        <td> {value.addedBy.fname} </td>
+                        <td> {value.addedBy.phone} </td>
                         <td> {value.address} </td>
                         <td> {value.city} </td>
                         <td> {value.state} </td>
