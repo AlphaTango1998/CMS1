@@ -28,11 +28,19 @@ function Sidebar() {
           <NavLink className="fs-5 text-decoration-none" to="/home"><i className ="fa-solid fa-house-chimney px-3"></i> Dashboard</NavLink>
           </li>
           <li className="nav-item mt-3">
-          <NavLink className="fs-5 text-decoration-none"  to="/product"> <i className="fa-solid fa-box px-3"></i> Product</NavLink>
+          <p className="fs-5 text-decoration-none text-primary" > <i className="fa-solid fa-box px-3"></i> Product</p>
           </li>
-          <li className="nav-item mt-3">
+          <ul  style={{"list-style-type":"none"}}>
+          <li className="nav-item ">
           <NavLink className="fs-5 text-decoration-none"  to="/addproduct"> <i className="fa-solid fa-circle-plus px-3"></i>Add Product</NavLink>
           </li>
+          <li className="nav-item ">
+          <NavLink className="fs-5 text-decoration-none"  to="/productlist"> <i className="fa-solid fa-circle-plus px-3"></i>List Product</NavLink>
+          </li>
+          <li className="nav-item ">
+          <NavLink className="fs-5 text-decoration-none"  to="/deleteproduct"> <i className="fa-solid fa-circle-plus px-3"></i>Delete Product</NavLink>
+          </li>
+          </ul>
           <li className="nav-item mt-3">
           <NavLink className="fs-5 text-decoration-none"  to="/order"> <i className="fa-solid fa-dolly px-3"></i>Orders</NavLink>
           </li>
