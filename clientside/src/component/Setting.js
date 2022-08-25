@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { getAdmin } from "../service/api";
+
 function Setting() {
   const imagePath = "https://cdn1.vectorstock.com/i/thumb-large/18/05/businessman-or-programmer-avatar-profile-userpic-vector-7471805.jpg";
   const [userData, setAdmin] = useState({ cod: "404" });
@@ -13,6 +14,17 @@ function Setting() {
     setAdmin(admin_data);
     console.log(admin_data);
     console.log(admin_data.data[0].fname);
+
+import { useCookies } from 'react-cookie';
+function Setting() {
+  const imagePath = "https://cdn1.vectorstock.com/i/thumb-large/18/05/businessman-or-programmer-avatar-profile-userpic-vector-7471805.jpg";
+  const [userData, setAdmin] = useState({ cod: "404" });
+  const [cookies, setCookie] = useCookies(['user']);
+  let token_value=cookies.jwtoken;
+  useEffect(() => {
+    getAdminData();
+  }, []);
+
   };
 
   return (
@@ -20,11 +32,14 @@ function Setting() {
       <div>
         <div className="row">
           <div className="col-lg-12">
+
             <Navbar />{" "}
+
           </div>
         </div>
         <div className="row">
           <div className="col-lg-3">
+
             <Sidebar />{" "}
           </div>
           <div className="col-lg-9">
@@ -32,10 +47,11 @@ function Setting() {
             <div>
               {userData?.cod === "404" ? (
                 <div className="row mt-5">
+
                   <div className="card text-center">
                     <div className="card-header">data not found</div>
                   </div>
-                </div>
+
               ) : (
                 userData.data.map((value, id) => (
                
@@ -65,7 +81,8 @@ function Setting() {
                   {<p class="card-text col-sm"> {value.dob}</p>}
 
                 </div>  
-              </div>
+
+
                  ))
               )}
             </div>

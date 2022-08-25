@@ -7,8 +7,10 @@ import bcrypt from "bcryptjs";
 
 //register api
 export const addUser = async (req, res) => {
+
   const { name, email, password } = req.body;
   //check filed is empty or not
+
 
   if (!name || !email || !password) {
     return res.status(422).json({ error: "plz filled the fields properly" });
@@ -32,6 +34,7 @@ export const addUser = async (req, res) => {
 
 //login code
 export const getUser = async (req, res) => {
+
   const { email, password } = req.body;
   //check filed is empty or not
   if (!email || !password) {
@@ -60,8 +63,10 @@ export const getUser = async (req, res) => {
     console.log(error);
   }
 };
+
 //user__Data
 export const getAll = async (req, res) => {
+
   // console.log("token",req.token,"user-->",req.rootUser,"userId--->",req.userID);
 
   try {
@@ -140,6 +145,7 @@ export const addAddress = async (req, res) => {
     if (!address || !city || !state || !country) {
       return res.status(422).json({ error: "plz filled the fields properly" });
     }
+
     
     try {
       
@@ -202,3 +208,50 @@ export const DeleteAddress = async (req, res) => {
     res.status(401).json({ message: error.message });
   }
 };
+
+
+
+//order__Data
+export const totalOrder = async (req, res) => {
+
+    try {
+        const orders = await Orderdata.find().countDocuments();
+        // console.log(orders);
+        res.status(201).json(orders);
+    }
+    catch (error) { res.status(401).json({ message: error.message }) };
+};
+
+//order__Data
+export const totalUser = async (req, res) => {
+
+    try {
+        const users = await Userdata.find().countDocuments();
+        //console.log(users);
+        res.status(201).json(users);
+    }
+    catch (error) { res.status(401).json({ message: error.message }) };
+};
+
+//total_sales__Data
+export const totalSales = async (req, res) => {
+
+    try {
+        const sales = await Orderdata.aggregate([{ $group: { _id: null, sum_val: { $sum: "$totalamount" } } }])
+       // console.log(sales);
+        res.status(201).json(sales);
+    }
+    catch (error) { res.status(401).json({ message: error.message }) };
+};
+
+export const getAdmin = async (req, res) => {
+    try {
+      const users = await Cmsuser.find();
+     // console.log(users);
+      res.status(201).json(users);
+    } catch (error) {
+      res.status(401).json({ message: error.message });
+    }
+  };
+  
+
