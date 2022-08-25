@@ -182,4 +182,23 @@ export const getAdmin = async (req, res) => {
     }
   };
   
-
+  
+  export const productlist = async (req, res) => {
+    try {
+      const products = await Product.find();
+      //console.log(users);
+      res.status(201).json(products);
+    } catch (error) {
+      res.status(401).json({ message: error.message });
+    }
+  };
+  
+  export const deleteproduct = async ( req , res ) =>{
+   
+    try{
+         const responce = await Product.deleteOne({ id:req.params.id});
+            res.status(201).json(responce);
+        }
+    catch(error)
+        {  res.status(401).json({ message:error.message })  };
+ }

@@ -140,4 +140,30 @@ export const productAdd = async (data) =>{
       }
   };  
 
-   
+   //get all product  data 
+          
+ export const getProductAll   = async () =>{
+  try{
+       
+      const result= await axios.get(`http://localhost:8000/productlist`,{withCredentials:true} );
+    //  console.log(result)
+      return result;
+  
+      }
+      catch(error){
+          console.log(error.message);
+      }
+  };  
+
+  export const deleteProduct= async (id) =>{
+    try{
+         
+        return await axios.delete(`http://localhost:8000/productlist/${id}`,{withCredentials:true});
+        }
+    catch(error){
+        console.log(error.message);
+    }
+    };       
+
+    
+    
