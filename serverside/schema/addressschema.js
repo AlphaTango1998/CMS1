@@ -12,7 +12,7 @@ import mongoose from 'mongoose';
 
 
 const addressSchema = new mongoose.Schema({
-    addedBy:{type:mongoose.Schema.Types.ObjectId, required:true  },
+    addedBy:{type:mongoose.Schema.Types.ObjectId,ref:"userdatas", required:true  },
     address:{type:String, required:true },
     city:{type:String,required:true},
     state:{type:String, required:true },

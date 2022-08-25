@@ -131,22 +131,45 @@ export const getAdmin = async (req, res) => {
   }
 };
 
+
+//add address data
+export const addAddress = async (req, res) => {
+    const { address, city, state, country, addedBy } = req.body;
+    //check filed is empty or not
+  
+    if (!address || !city || !state || !country) {
+      return res.status(422).json({ error: "plz filled the fields properly" });
+    }
+    
+    try {
+      
+      const newAddress = new addressdata({ address, city, state, country, addedBy });
+  
+      await newAddress.save();
+      res.status(201).json(newAddress);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 //allAddressData
 export const getAddress = async (req, res) => {
-  try {
-    const address = await addressdata.find();
 
-    console.log(address);
-    res.status(201).json(address);
-  } catch (error) {
-    res.status(401).json({ message: error.message });
-  }
-};
+    try {
+      const address = await addressdata.find().populate('addedBy');
+
+      console.log(address);
+      res.status(201).json(address);
+    } catch (error) {
+      res.status(401).json({ message: error.message });
+    }
+  };
+
 
 //addressDetailData
 export const getAddressDetail = async (req, res) => {
   try {
-    const addressDetailData = await addressdata.findById(req.params.id);
+    const addressDetailData = await addressdata.findById(req.params.id).populate('addedBy');
     console.log(addressDetailData);
     res.status(201).json(addressDetailData);
   } catch (error) {

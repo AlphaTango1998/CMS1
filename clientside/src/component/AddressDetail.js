@@ -48,12 +48,12 @@ function AddressDetail() {
                  
                   <div className="card-body row">
                   <h5 className="card-title col-sm" style={{ "color": "#fff"}}>Name</h5>
-                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.name}</p>
+                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.addedBy.fname}</p>
                   </div>
 
                   <div className="card-body row">
                   <h5 className="card-title col-sm" style={{ "color": "#fff"}}>phone</h5>
-                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.phone}</p>
+                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.addedBy.phone}</p>
                   </div>
 
                   <div className="card-body row">

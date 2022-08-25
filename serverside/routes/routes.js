@@ -2,7 +2,7 @@ import express from "express";
 
 import Authenticate from "../middleware/authenticate.js";
 
-import { addUser, getUser, getAll,getAdmin,getAddress,getAddressDetail,EditAddress,DeleteAddress, getOrder, getOrderData,addProduct} from "../controllers/cms_controller.js";
+import { addUser, getUser, getAll,getAdmin,getAddress,getAddressDetail,EditAddress,DeleteAddress, getOrder, getOrderData,addProduct,addAddress} from "../controllers/cms_controller.js";
 
 
 
@@ -14,6 +14,7 @@ router.get('/order_data', getOrder);
 router.get('/order_data/:id', getOrderData);
 router.post('/addproduct' , addProduct );
 router.get('/setting', getAdmin);
+router.get('/addAddress',addAddress);
 router.get('/Address',getAddress);
 router.get('/AddressDetail/:id',getAddressDetail);
 router.put('/EditAddress/:id',EditAddress);
