@@ -20,7 +20,7 @@ function Order() {
        const order_data = await getOrder(token_value);
 
            setOrderData(order_data);
-       //  console.log(order_data)
+        //console.log(order_data)
         //console.log(order_data.data)
         }
 

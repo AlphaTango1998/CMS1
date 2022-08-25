@@ -14,7 +14,7 @@ function Login_user() {
     const user_data = await getAll(token_value);
     setUserData(user_data);
 
-    // console.log(user_data)
+     console.log(user_data)
     //console.log(user_data.data[0].fname)
   };
 
@@ -51,7 +51,7 @@ function Login_user() {
                   </thead>
 
                   <tbody>
-                    {userData.data.map((value, id) => (
+                    { userData.data.map((value, id) => (
                       <tr key={id}>
                         <td> *</td>
                         <td> {value.fname} </td>
