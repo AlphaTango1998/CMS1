@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import { useCookies } from 'react-cookie';
 
+
 import  { totalOrder, totalUser ,totalSales} from '../service/api';
 function Home() {
   const [cookies, setCookie] = useCookies(['user']);
