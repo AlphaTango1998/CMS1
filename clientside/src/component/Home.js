@@ -1,10 +1,42 @@
-import React from 'react'
+import React ,{useEffect,useState} from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import { useCookies } from 'react-cookie';
+
+import  { totalOrder, totalUser ,totalSales} from '../service/api';
 function Home() {
   const [cookies, setCookie] = useCookies(['user']);
-    let token_value=cookies.jwtoken;
+
+  const [order,setOrder] = useState("0");
+  const [countUser,setCountuser] = useState('0');
+  const [countSales,setCountsales] = useState('0');
+
+  let token_value=cookies.jwtoken;
+  //console.log(cookies.jwtoken);
+  useEffect(()=>{
+    total_order_data();
+    total_user_data();
+    total_sales_data();
+  },[]);
+
+  const total_order_data = async () =>{
+    const total_order = await totalOrder( token_value); 
+    //console.log(total_order);
+    setOrder(total_order.data)
+  }
+
+  const total_user_data = async () =>{
+    const total_user = await totalUser( token_value); 
+    //console.log(total_order);
+    setCountuser(total_user.data)
+  }
+ 
+  const total_sales_data = async () =>{
+    const total_sales = await totalSales( token_value); 
+    //console.log(total_sales.data[0].sum_val);
+    setCountsales(total_sales.data[0].sum_val)
+  }
+
   return (
     <>
       <div style={{"background":"#f2edf3"}}> 
@@ -19,17 +51,17 @@ function Home() {
               <div className="card text-white" style={{"background":"#f96868"}}  >
                       <div className="card-body p-4">
                        <h4 className="card-title">Total User  <i className="fa-solid fa-chart-line px-5" ></i></h4>
-                       <p className="h3 p-2"> 200</p>
-                              <p className="card-text">Total User Of Months</p>
+                       <p className="h3 p-2">{  countUser }</p>
+                              <p className="card-text">Total User Of system</p>
                        </div>
               </div>
               </div>
               <div className="col-lg-4 p-2 mt-3">
               <div className="card text-white " style={{"background":"#5e50f9"}}>
                       <div className="card-body p-4">
-                          <h4 className="card-title">Total Sales <i class="fa-regular fa-bookmark px-5"></i> </h4>
-                            <p className="h3 p-2"> $ 20,000</p>
-                              <p className="card-text">Total Sales Of Month</p>
+                          <h4 className="card-title">Total Sales <i className="fa-regular fa-bookmark px-5"></i> </h4>
+                            <p className="h3 p-2"> $ { countSales }</p>
+                              <p className="card-text">Total Sales Of Business</p>
                        </div>
               </div>
               </div>
@@ -37,8 +69,8 @@ function Home() {
               <div className="card text-white "style={{"background":"#1bcfb4"}} >
                       <div className="card-body p-4">
                           <h4 className="card-title">Total Order <i className="fa-regular fa-diamond px-5"></i> </h4>
-                          <p className="h3 p-2">  20</p>
-                              <p className="card-text">Total Order Of Month</p>
+                          <p className="h3 p-2"> { order }</p>
+                              <p className="card-text">Total Order Of business</p>
                        </div>
               </div>
               </div>

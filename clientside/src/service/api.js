@@ -72,7 +72,7 @@ export const getAll = async (data) =>{
 export const productAdd = async (data) =>{
   try{
        
-      const result= await axios.post("http://localhost:8000/addproduct",{withCredentials:true},data);
+      const result= await axios.post("http://localhost:8000/addproduct",data,{withCredentials:true});
         //console.log(result);
         return result;
   
@@ -81,3 +81,49 @@ export const productAdd = async (data) =>{
           console.log(error.message);
       }
   };
+  
+     //get total number of order
+          
+  export const totalOrder = async () =>{
+    try{
+         
+        const result= await axios.get(`http://localhost:8000/home/order`,{withCredentials:true});
+      //  console.log(result)
+        return result;
+    
+        }
+        catch(error){
+            console.log(error.message);
+        }
+    };  
+
+     //get total number of user
+          
+     export const totalUser = async () =>{
+      try{
+           
+          const result1= await axios.get(`http://localhost:8000/home/user`,{withCredentials:true});
+        //  console.log(result)
+          return result1;
+      
+          }
+          catch(error){
+              console.log(error.message);
+          }
+      };  
+   //get total sales of system
+          
+   export const totalSales = async () =>{
+    try{
+         
+        const result2= await axios.get(`http://localhost:8000/home/sales`,{withCredentials:true});
+      //  console.log(result)
+        return result2;
+    
+        }
+        catch(error){
+            console.log(error.message);
+        }
+    };  
+
+   

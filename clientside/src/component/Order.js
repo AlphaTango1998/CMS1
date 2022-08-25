@@ -10,6 +10,7 @@ function Order() {
     const [orderData, setOrderData] = useState( {"cod":"404"} );
     const [cookies, setCookie] = useCookies(['user']);
     let token_value=cookies.jwtoken;
+
     const imgpath="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLPSwWEGlf4bXeS8c32qyuDS6W6X9QfbKXw&usqp=CAU";
    
     useEffect(()=>{
@@ -17,7 +18,7 @@ function Order() {
       },[]);
    
       const getAllOrder = async() =>{
-       const order_data = await getOrder(token_value);
+       const order_data = await getOrder( token_value);
            setOrderData(order_data);
        //  console.log(order_data)
         //console.log(order_data.data)
@@ -35,6 +36,7 @@ function Order() {
    <div className="col-lg-9">  <h3 className="text-center"> User  Order Details </h3>
      <div>
     
+          { orderData?.cod==='404' ? (
                      <div className="row mt-5">
                      <div className="card text-center">
                      <div className="card-header">
@@ -45,7 +47,7 @@ function Order() {
                  
                  </div>
 
-        
+           ):( 
 
             <div>
                {
@@ -72,7 +74,7 @@ function Order() {
        
          </div>
 
-             
+                   ) }
 
         
     
