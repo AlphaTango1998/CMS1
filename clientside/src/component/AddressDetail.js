@@ -3,19 +3,23 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { useParams } from "react-router-dom";
 import { getAddressDetail } from "../service/api";
+import { useCookies } from 'react-cookie';
 // import { Link } from "react-router-dom";
 function AddressDetail() {
-  const [addressData, setAddressDetail] = useState({ cod: "404" });
+  const [addressData, setAddressDetail] = useState();
+  const [cookies, setCookie] = useCookies(['user']);
+  let token_value=cookies.jwtoken;
+ 
   let { id } = useParams();
-  console.log(id);
+  //console.log(id);
   useEffect(() => {
     getAddress();
 
   }, []);
   const getAddress = async () => {
-    const address_detail_data = await getAddressDetail(id);
+    const address_detail_data = await getAddressDetail(id, token_value);
     setAddressDetail(address_detail_data);
-    console.log(address_detail_data.data);
+    //console.log(address_detail_data.data);
    // console.log(address_detail_data.data);
   };
 
@@ -24,18 +28,18 @@ function AddressDetail() {
       <div>
         <div className="row">
           <div className="col-lg-12">
-            <Navbar />{" "}
+            <Navbar />
           </div>
         </div>
         <div className="row">
           <div className="col-lg-3">
-            <Sidebar />{" "}
+            <Sidebar />
           </div>
           <div className="col-lg-9  ">
             
             <div>
               { 
-              addressData?.cod === "404" ? (
+             !addressData ? (
                 <div className="row mt-5">
                   <div className="card text-center">
                     <div className="card-header">data not found</div>
@@ -44,16 +48,16 @@ function AddressDetail() {
               ) : (
                 
                   <div >
-                  <div className="card m-5 p-5 bg-primary" style={{"width":" 50rem", "align-self": "center"}}>
+                  <div className="card m-5 p-5 bg-primary" style={{"width":" 50rem", "alignSelf": "center"}}>
                  
                   <div className="card-body row">
                   <h5 className="card-title col-sm" style={{ "color": "#fff"}}>Name</h5>
-                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.name}</p>
+                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.addedBy.fname}</p>
                   </div>
 
                   <div className="card-body row">
                   <h5 className="card-title col-sm" style={{ "color": "#fff"}}>phone</h5>
-                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.phone}</p>
+                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.addedBy.phone}</p>
                   </div>
 
                   <div className="card-body row">

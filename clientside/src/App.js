@@ -11,6 +11,9 @@ import ShowOrder from './component/ShowOrder';
 import Logout from './component/Logout';
 import Setting from './component/Setting';
 import Listproduct from './component/Listproduct'
+import Address from './component/Address';
+import AddressDetail from './component/AddressDetail';
+import EditAddress from './component/EditAddress';
 
 import { BrowserRouter,Routes,Route }from 'react-router-dom';
 
@@ -30,6 +33,10 @@ function App() {
         <Route  path='/setting' element={ < Setting /> } > </Route>
         <Route  path='/logout' element={ < Logout /> } > </Route>
         <Route  path='/productlist' element={ < Listproduct /> } > </Route>
+        <Route  path='/address' element={< Address />}></Route>
+        <Route  path='/AddressDetail/:id' element={< AddressDetail />}></Route>
+        <Route  path='/EditAddress/:id' element={< EditAddress />}></Route>
+        
        
      </Routes>
      </BrowserRouter>

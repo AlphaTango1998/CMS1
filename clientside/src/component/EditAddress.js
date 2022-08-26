@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { editAddress, getAddressDetail } from "../service/api";
 import { useNavigate, useParams } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 function EditAddress() {
   const initial = {
     address: "",
@@ -11,15 +12,17 @@ function EditAddress() {
     country: "",
   };
   const [address, setAddress] = useState(initial);
+  const [cookies, setCookie] = useCookies(['user']);
+  let token_value=cookies.jwtoken;
   let { id } = useParams();
   useEffect(() => {
     loadAddressDetail();
   }, []);
 
-  console.log(id);
+ // console.log(id);
   const loadAddressDetail = async () => {
-    const response = await getAddressDetail(id);
-    console.log(response);
+    const response = await getAddressDetail(id,token_value);
+   // console.log(response);
     setAddress(response.data);
   };
 
@@ -32,7 +35,7 @@ function EditAddress() {
   const edithandleSubmit = async (e) => {
     e.preventDefault();
 
-    await editAddress(address, id);
+    await editAddress(address, id,token_value) ;
     navigate("/address");
   };
   return (
