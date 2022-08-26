@@ -91,7 +91,7 @@ export const getAll = async (req, res) => {
     
     try{
          const orders= await Orderdata.find();
-         console.log(orders);
+        // console.log(orders);
             res.status(201).json(orders);
         }
     catch(error)
@@ -102,7 +102,7 @@ export const getAll = async (req, res) => {
     
     try{
          const orders= await Orderdata.findById(req.params.id);
-         console.log(orders);
+         //console.log(orders);
             res.status(201).json(orders);
         }
     catch(error)
@@ -114,7 +114,7 @@ export const addProduct = async ( req , res ) =>
     
     const {  pname,ptitle,pid,pcategory,price,pstockvalue } = req.body;
     //check filed is empty or not
-    console.log( pname,ptitle,pid,pcategory,price,pstockvalue  );
+    //console.log( pname,ptitle,pid,pcategory,price,pstockvalue  );
     if(!pname || !ptitle || !pid || !pcategory || !price || !pstockvalue)
     {
         return res.status(422).json({error:"plz filled the fields properly"});
@@ -122,7 +122,7 @@ export const addProduct = async ( req , res ) =>
     //find email not present already
    try{
        const newProduct =  new Product({name:pname,title:ptitle,id:pid,category:pcategory,price:price,stockvalue:pstockvalue  });    
-                console.log(newProduct);
+      //          console.log(newProduct);
 
           await newProduct.save();
         res.status(201).json(newProduct);
