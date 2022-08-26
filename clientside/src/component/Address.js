@@ -52,7 +52,7 @@ function Address() {
                 <table className="table table-bordered">
                   <thead className="thead-dark">
                     <tr>
-                      <th>*</th>
+                      <th>S.no</th>
                       <th>Name</th>
                       <th>Phone</th>
                       <th>Address</th>
@@ -68,7 +68,7 @@ function Address() {
                   <tbody>
                     {addressData.data.map((value, id) => (
                       <tr key={id}>
-                        <td> *</td>
+                        <td> {id+1}</td>
                         <td> {value.addedBy.fname} </td>
                         <td> {value.addedBy.phone} </td>
                         <td> {value.address} </td>

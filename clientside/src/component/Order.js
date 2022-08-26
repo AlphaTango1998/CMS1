@@ -27,7 +27,7 @@ function Order() {
       
   return (
     <>
-   
+   <div >
     <div className="row">
       <div className="col-lg-12"><Navbar /> </div>  
     </div>
@@ -73,6 +73,7 @@ function Order() {
             
        
          </div>
+         
 
                    ) }
 
@@ -83,7 +84,7 @@ function Order() {
       </div>
       </div>
         
-    
+      </div>
 
   </>
   )

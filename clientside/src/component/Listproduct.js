@@ -28,7 +28,7 @@ function Listproduct() {
 
   return (
     <>
-    <div>
+    <div >
     <div className="row">
         <div className="col-lg-12"><Navbar /> </div>  
       </div>

@@ -46,7 +46,7 @@ function Login_user() {
            
            <thead>
              <tr>
-               <th>*</th>
+               <th>S.no</th>
                 <th>First Name</th>
                <th >Last Name</th>
                <th >Email</th>
@@ -60,7 +60,7 @@ function Login_user() {
                {
            userData.data.map((value,id)=> 
           <tr key={id}>  
-          <td > *</td>
+          <td >{ id+1 }</td>
           <td > { value.fname } </td>
           <td > { value.lname } </td>
           <td > { value.email } </td>

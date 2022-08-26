@@ -39,6 +39,7 @@ const Addproduct = () => {
 
   return (
     <>
+    <div style={{"background":"#f2edf3"}}> 
       <div className="row">
         <div className="col-lg-12"><Navbar /> </div>
       </div>
@@ -56,17 +57,35 @@ const Addproduct = () => {
                 <tbody>
                   <tr className='tr'>
                     <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pname" className="form-control" placeholder="Productname" /></td>
-                    <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="ptitle" className="form-control" placeholder="Product Title" /></td>
+                    <td className='td'>
+                    <select className="form-control" onChange={(e) =>  onValueChange(e) } name="ptitle"> //set value here
+                              <option value="Title">Title</option>
+                               <option value="T-shirt">T-shirt</option>
+                               <option value="Shirt">Shirt</option>
+                               <option value="jeans">jeans</option>
+                     </select>
+
+                    </td>
                   </tr>
+                  
                   <tr className='tr'>
                     <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pid" className="form-control" placeholder='Product Id' /></td>
-                    <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pcategory" className="form-control" placeholder='Product Category' /></td>
+                    <td className='td'>
+                    <select className="form-control" onChange={(e) =>  onValueChange(e) } name="pcategory"> //set value here
+                              <option value="Product Categories"> Categories</option>
+                               <option value="Formal">Formal</option>
+                               <option value="Regular">Regular</option>
+                               <option value="Party wear">Party wear</option>
+                     </select>
+
+                    </td>
+
                   </tr>
                   <tr className='tr'>
-                    <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="price" className="form-control" placeholder='Price' /></td>
+                    <td className='td'><input type="text" onChange={(e) => onValueChange(e) } name="price" className="form-control" placeholder='Price' /></td>
                     <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pstockvalue" className="form-control" placeholder='Stockvalue' /></td>
                   </tr>
-                </tbody>
+                  </tbody>
               </table>
 
               <input type="submit"  value="Submit" className="button regibutton" />
@@ -78,6 +97,7 @@ const Addproduct = () => {
 
 
         </div>
+      </div>
       </div>
     </>
   )
