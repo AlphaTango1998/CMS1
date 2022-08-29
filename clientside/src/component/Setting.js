@@ -5,8 +5,10 @@ import { getAdmin } from "../service/api";
 import { useCookies } from 'react-cookie';
 function Setting() {
   const imagePath = "https://cdn1.vectorstock.com/i/thumb-large/18/05/businessman-or-programmer-avatar-profile-userpic-vector-7471805.jpg";
+
   const [userData, setAdmin] = useState({ cod: "404" });
  // eslint-disable-next-line
+
   const [cookies, setCookie] = useCookies(['user']);
   let token_value=cookies.jwtoken;
   useEffect(() => {
@@ -15,7 +17,7 @@ function Setting() {
 
   const getAdminData = async () => {
     const admin_data = await getAdmin(token_value);
-    setAdmin(admin_data);
+    setAdmin(admin_data.data);
    // console.log(admin_data);
     //console.log(admin_data.data[0].fname);
   };
@@ -35,7 +37,9 @@ function Setting() {
           <div className="col-lg-9">
           <h3 className="text-center">Admin Details </h3> 
             <div>
+
               { userData ? (
+
                
                <div className="row mt-5">
                   <div className="card text-center">
@@ -45,7 +49,7 @@ function Setting() {
 
               ) : (
                 
-                userData.data.map((value, id) => (
+                userData.map((value, id) => (
                
                   <div className="card m-2   " key={id}>
                   <div >

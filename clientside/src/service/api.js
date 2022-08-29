@@ -186,3 +186,75 @@ export const editAddress = async (address,id) =>{
     }; 
 
 
+
+   //get all product  data 
+          
+ export const getProductAll   = async () =>{
+  try{
+       
+      const result= await axios.get(`http://localhost:8000/productlist`,{withCredentials:true} );
+    //  console.log(result)
+      return result;
+  
+      }
+      catch(error){
+          console.log(error.message);
+      }
+  };  
+
+  export const deleteProduct= async (id) =>{
+    try{
+         
+        return await axios.delete(`http://localhost:8000/productlist/${id}` ,{withCredentials:true} );
+        }
+    catch(error){
+        console.log(error.message);
+    }
+    };       
+
+// All Addresses
+export const getAddress = async (data) => {
+  
+  try {
+    const result = await axios.get("http://localhost:8000/address",{withCredentials:true});
+    // console.log(result)
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+//delete address 
+export const deleteAddress = async (id) =>{
+  try{
+       
+      return await axios.delete(`http://localhost:8000/address/${id}`,{withCredentials:true} );
+      }
+  catch(error){
+      console.log(error.message);
+  }
+  }; 
+
+ // Address detail
+export const getAddressDetail = async (id) => {
+  
+  try {
+    const result = await axios.get(`http://localhost:8000/AddressDetail/${id}`,{withCredentials:true} );
+    // console.log(result)
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};   
+   
+//edit address
+export const editAddress = async (address,id) =>{
+  try{
+       
+      return await axios.put(`http://localhost:8000/EditAddress/${id}`,address,{withCredentials:true});
+      }
+  catch(error){
+      console.log(error.message);
+  }
+  };
+

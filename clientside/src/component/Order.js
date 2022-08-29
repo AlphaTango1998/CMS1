@@ -7,8 +7,10 @@ import { useCookies } from 'react-cookie';
 
 function Order() {
 
+
     const [orderData, setOrderData] = useState( {"cod":"404"} );
     // eslint-disable-next-line
+
     const [cookies, setCookie] = useCookies(['user']);
     let token_value=cookies.jwtoken;
 
@@ -20,15 +22,15 @@ function Order() {
    
       const getAllOrder = async() =>{
        const order_data = await getOrder( token_value);
-           setOrderData(order_data);
-       //  console.log(order_data)
+           setOrderData(order_data.data);
+       //    console.log(order_data.data);
         //console.log(order_data.data)
         }
 
       
   return (
     <>
-   
+   <div >
     <div className="row">
       <div className="col-lg-12"><Navbar /> </div>  
     </div>
@@ -37,7 +39,9 @@ function Order() {
    <div className="col-lg-9">  <h3 className="text-center"> User  Order Details </h3>
      <div>
     
+
           { orderData ? (
+
                      <div className="row mt-5">
                      <div className="card text-center">
                      <div className="card-header">
@@ -50,9 +54,9 @@ function Order() {
 
            ):( 
 
-            <div>
-               {
-                    orderData.data.map((value,id)=> 
+            <div> 
+               { 
+                    orderData.map((value,id)=> 
                      <div className="card" style={{"width":"20rem"}} key={id}>
                          <img className="card-img-top" src={imgpath} alt="default img"  />
                          <div className="card-body">
@@ -68,12 +72,13 @@ function Order() {
                       </div>
                     </div>
                     )
-                }
+           }
                 
               
             
        
          </div>
+         
 
                    ) }
 
@@ -84,7 +89,7 @@ function Order() {
       </div>
       </div>
         
-    
+      </div>
 
   </>
   )
