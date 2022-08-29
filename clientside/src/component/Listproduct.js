@@ -18,8 +18,7 @@ function Listproduct() {
        const product_data = await getProductAll( token_value);
            setProductData(product_data);
 
-               // console.log(product_data)
-        //console.log(user_data.data[0].fname)
+              
         }
      const deleteUserDetails = async (id) =>{
           await deleteProduct(id, token_value);
@@ -39,7 +38,7 @@ function Listproduct() {
           <h3 className="text-center">Product Details List</h3>
         <div>
     
-          { !product ? (
+          { !  product ? (
                      
                      <div className="card text-center">
                      <div className="card-header">
