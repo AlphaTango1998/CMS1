@@ -10,6 +10,7 @@ function Login() {
   
   }
   const[user,setUser]=useState(initial);
+  // eslint-disable-next-line
   const [cookies, setCookie] = useCookies('');
   const navigate= useNavigate();
 

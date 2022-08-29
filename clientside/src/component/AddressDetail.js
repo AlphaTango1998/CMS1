@@ -38,8 +38,9 @@ function AddressDetail() {
           <div className="col-lg-9  ">
             
             <div>
-              { 
-             !addressData ? (
+
+              { addressData ? (
+
                 <div className="row mt-5">
                   <div className="card text-center">
                     <div className="card-header">data not found</div>

@@ -1,4 +1,3 @@
-
 import mongoose from 'mongoose';
 
 const addressSchema = new mongoose.Schema({
@@ -13,4 +12,5 @@ const addressSchema = new mongoose.Schema({
 })
 
 const addressdata = mongoose.model("addressdata",addressSchema);
+
 export default addressdata;

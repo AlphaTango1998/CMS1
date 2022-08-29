@@ -5,7 +5,10 @@ import { getAdmin } from "../service/api";
 import { useCookies } from 'react-cookie';
 function Setting() {
   const imagePath = "https://cdn1.vectorstock.com/i/thumb-large/18/05/businessman-or-programmer-avatar-profile-userpic-vector-7471805.jpg";
-  const [userData, setAdmin] = useState();
+
+  const [userData, setAdmin] = useState({ cod: "404" });
+ // eslint-disable-next-line
+
   const [cookies, setCookie] = useCookies(['user']);
   let token_value=cookies.jwtoken;
   useEffect(() => {
@@ -34,7 +37,9 @@ function Setting() {
           <div className="col-lg-9">
           <h3 className="text-center">Admin Details </h3> 
             <div>
-              { !userData ? (
+
+              { userData ? (
+
                
                <div className="row mt-5">
                   <div className="card text-center">
@@ -49,7 +54,7 @@ function Setting() {
                   <div >
                     <div className="row">
                         <div className="col-lg-6 text-center">  
-                        <img src= {imagePath} className="card-img-center" /> </div>
+                        <img alt="alternative" src= {imagePath} className="card-img-center" /> </div>
                         <div className="col-lg-6 px-5 pb-3">   
                                 <p className="card-text pt-5"> <span className="h5  "> Name:</span><span className="h5 px-4">{userData.name} </span></p> 
                                 <p className="card-text "> <span className="h5 ">Email:</span> <span className="h5 px-4">{userData.email} </span> </p>
