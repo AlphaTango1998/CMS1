@@ -48,7 +48,7 @@ function Sidebar() {
           <NavLink className="fs-5 text-decoration-none"  to="/setting"> <i className="fa-solid fa-gears px-3"></i>Setting</NavLink>
           </li>
           <li className="nav-item mt-3">
-          <NavLink className="fs-5 text-decoration-none"  onClick={logout}> <i className="fa-solid fa-arrow-right-from-bracket px-3"></i>logout</NavLink>
+          <NavLink className="fs-5 text-decoration-none" to="/logout"  > <i className="fa-solid fa-arrow-right-from-bracket px-3"></i>logout</NavLink>
           </li> 
         </ul>
       </div>

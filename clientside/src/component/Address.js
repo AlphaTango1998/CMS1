@@ -9,7 +9,7 @@ function Address() {
   const [cookies, setCookie] = useCookies(['user']);
   let token_value=cookies.jwtoken;
 
-  const [addressData, setAddress] = useState({ cod: "404" });
+  const [addressData, setAddress] = useState();
 
  
   useEffect(() => {
@@ -46,7 +46,7 @@ function Address() {
             <h3 className="text-center">Addresses </h3>
             <div>
 
-              {addressData ? (
+              { !addressData ? (
 
                 <div className="row mt-5">
                   <div className="card text-center">
