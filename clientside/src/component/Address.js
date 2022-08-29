@@ -5,7 +5,7 @@ import { deleteAddress, getAddress } from "../service/api";
 import { useCookies } from 'react-cookie';
 import { Link } from "react-router-dom";
 function Address() {
-
+  // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(['user']);
   let token_value=cookies.jwtoken;
 

@@ -7,7 +7,6 @@ function Login_user() {
 
     const [userData, setUserData] = useState({"cod":"404"});
     // eslint-disable-next-line
-
     const [cookies, setCookie] = useCookies(['user']);
     let token_value=cookies.jwtoken;
        useEffect(()=>{
