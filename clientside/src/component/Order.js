@@ -7,7 +7,10 @@ import { useCookies } from 'react-cookie';
 
 function Order() {
 
-    const [orderData, setOrderData] = useState( );
+
+    const [orderData, setOrderData] = useState( {"cod":"404"} );
+    // eslint-disable-next-line
+
     const [cookies, setCookie] = useCookies(['user']);
     let token_value=cookies.jwtoken;
 
@@ -36,7 +39,9 @@ function Order() {
    <div className="col-lg-9">  <h3 className="text-center"> User  Order Details </h3>
      <div>
     
-          { !orderData ? (
+
+          { orderData ? (
+
                      <div className="row mt-5">
                      <div className="card text-center">
                      <div className="card-header">

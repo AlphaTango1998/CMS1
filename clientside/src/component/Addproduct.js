@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Addproduct = () => {
+  // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(['user']);
   const navigate = useNavigate();
   

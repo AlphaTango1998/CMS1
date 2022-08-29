@@ -5,9 +5,12 @@ import { deleteAddress, getAddress } from "../service/api";
 import { useCookies } from 'react-cookie';
 import { Link } from "react-router-dom";
 function Address() {
-  const [addressData, setAddress] = useState();
+
   const [cookies, setCookie] = useCookies(['user']);
   let token_value=cookies.jwtoken;
+
+  const [addressData, setAddress] = useState({ cod: "404" });
+
  
   useEffect(() => {
     getAllAddress();
@@ -42,7 +45,9 @@ function Address() {
           <div className="col-lg-9">
             <h3 className="text-center">Addresses </h3>
             <div>
-              { !addressData ? (
+
+              {addressData ? (
+
                 <div className="row mt-5">
                   <div className="card text-center">
                     <div className="card-header">data not found</div>
@@ -68,7 +73,9 @@ function Address() {
                   <tbody>
                     {addressData.data.map((value, id) => (
                       <tr key={id}>
+
                         <td> {id+1}</td>
+
                         <td> {value.addedBy.fname} </td>
                         <td> {value.addedBy.phone} </td>
                         <td> {value.address} </td>

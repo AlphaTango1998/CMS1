@@ -4,7 +4,10 @@ import Sidebar from './Sidebar'
 import  { getAll } from '../service/api';
 import { useCookies } from 'react-cookie';
 function Login_user() {
-    const [userData, setUserData] = useState();
+
+    const [userData, setUserData] = useState({"cod":"404"});
+    // eslint-disable-next-line
+
     const [cookies, setCookie] = useCookies(['user']);
     let token_value=cookies.jwtoken;
        useEffect(()=>{
@@ -32,7 +35,9 @@ function Login_user() {
           <h3 className="text-center">Login user Details </h3>
         <div>
     
-          { !userData ? (
+
+          { userData ? (
+
                      
                      <div className="card text-center">
                      <div className="card-header">
