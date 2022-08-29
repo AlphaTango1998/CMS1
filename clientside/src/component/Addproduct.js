@@ -53,7 +53,7 @@ const Addproduct = () => {
             <div className="Register">
               <form onSubmit={handleSubmit}>
                 <center>
-                  <h2 className='h2'>Add Product</h2>
+                  <h2 className='h2 '>Add Product</h2>
                   <table className='Regitable'>
                     <tbody>
                       <tr className='tr'>
