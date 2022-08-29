@@ -1,7 +1,7 @@
 import express from "express";
 
 import Authenticate from "../middleware/authenticate.js";
-import { addUser, getUser, getAll,getAdmin,getAddress,getAddressDetail,EditAddress,DeleteAddress, getOrder, getOrderData,addProduct,addAddress} from "../controllers/cms_controller.js";
+import { addUser,totalOrder,totalUser,totalSales, getUser, getAll,getAdmin,getAddress,getAddressDetail,EditAddress,DeleteAddress, getOrder, getOrderData,addProduct,addAddress} from "../controllers/cms_controller.js";
 
 
 
