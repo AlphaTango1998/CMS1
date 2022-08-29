@@ -1,7 +1,9 @@
 import express from "express";
+import { addUser, getUser, getAll, getOrder,addProduct, getOrderData,totalOrder,totalUser,totalSales,
+    getAdmin,productlist,deleteproduct,getAddress,getAddressDetail,EditAddress,DeleteAddress,addAddress} from "../controllers/cms_controller.js";
 
 import Authenticate from "../middleware/authenticate.js";
-import { addUser, getUser, getAll,getAdmin,getAddress,getAddressDetail,EditAddress,DeleteAddress, getOrder, getOrderData,addProduct,addAddress,totalOrder,totalUser,totalSales} from "../controllers/cms_controller.js";
+
 
 
 
@@ -24,6 +26,12 @@ router.get('/home/order',Authenticate, totalOrder);
 router.get('/home/user',Authenticate, totalUser);
 router.get('/home/sales',Authenticate, totalSales);
 
-
+router.get('/setting',Authenticate, getAdmin);
+router.get('/productlist',Authenticate, productlist);
+router.delete('/productlist/:id',Authenticate, deleteproduct);
+router.get('/address' ,Authenticate, getAddress);
+router.get('/AddressDetail/:id',Authenticate, getAddressDetail);
+router.put('/EditAddress/:id' ,Authenticate, EditAddress);
+router.delete('/address/:id',Authenticate,DeleteAddress);
 
 export default router ;
