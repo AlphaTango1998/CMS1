@@ -175,7 +175,8 @@ export const totalSales = async (req, res) => {
 
 export const getAdmin = async (req, res) => {
     try {
-      const users = await Cmsuser.find();
+      const token = req.cookies.jwtoken
+      const users = await Cmsuser.findOne({"tokens.token" : token});
       //console.log(users);
       res.status(201).json(users);
     } catch (error) {
