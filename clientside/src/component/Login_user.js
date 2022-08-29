@@ -5,7 +5,7 @@ import  { getAll } from '../service/api';
 import { useCookies } from 'react-cookie';
 function Login_user() {
 
-    const [userData, setUserData] = useState({"cod":"404"});
+    const [userData, setUserData] = useState();
     // eslint-disable-next-line
     const [cookies, setCookie] = useCookies(['user']);
     let token_value=cookies.jwtoken;
@@ -35,7 +35,7 @@ function Login_user() {
         <div>
     
 
-          { userData ? (
+          { !userData ? (
 
                      
                      <div className="card text-center">

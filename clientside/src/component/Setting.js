@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie';
 function Setting() {
   const imagePath = "https://cdn1.vectorstock.com/i/thumb-large/18/05/businessman-or-programmer-avatar-profile-userpic-vector-7471805.jpg";
 
-  const [userData, setAdmin] = useState({ cod: "404" });
+  const [userData, setAdmin] = useState();
  // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(['user']);
   let token_value=cookies.jwtoken;
@@ -37,7 +37,7 @@ function Setting() {
           <h3 className="text-center">Admin Details </h3> 
             <div>
 
-              { userData ? (
+              { !userData ? (
 
                
                <div className="row mt-5">
