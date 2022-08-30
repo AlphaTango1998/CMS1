@@ -3,12 +3,11 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { productAdd } from "../service/api";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
 
 const Addproduct = () => {
   // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(["user"]);
-  const navigate = useNavigate();
+
 
 
   let token_value = cookies.jwtoken;

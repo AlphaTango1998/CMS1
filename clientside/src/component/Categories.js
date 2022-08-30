@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-import { Link, useNavigate } from "react-router-dom";
 import { addcategories, getCategories } from "../service/api";
 import { useCookies } from "react-cookie";
 function Categories() {
@@ -13,7 +12,7 @@ function Categories() {
   // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(["user"]);
   let token_value = cookies.jwtoken;
-  const navigate = useNavigate();
+
   useEffect(() => {
     getdata();
   }, []);

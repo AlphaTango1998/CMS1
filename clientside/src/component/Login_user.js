@@ -3,11 +3,9 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { getAll } from "../service/api";
 import { useCookies } from "react-cookie";
+
 function Login_user() {
-  const [userData, setUserData] = useState();
-  // eslint-disable-next-line
-
-
+ 
     const [userData, setUserData] = useState();
     // eslint-disable-next-line
     const [cookies, setCookie] = useCookies(['user']);
