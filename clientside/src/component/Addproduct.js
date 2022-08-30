@@ -1,38 +1,36 @@
-import React, { useState } from 'react'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
-import { productAdd } from '../service/api';
-import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
-
-
+import React, { useState } from "react";
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
+import { productAdd } from "../service/api";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Addproduct = () => {
   // eslint-disable-next-line
-  const [cookies, setCookie] = useCookies(['user']);
-  
+  const [cookies, setCookie] = useCookies(["user"]);
+  const navigate = useNavigate();
+
 
   let token_value = cookies.jwtoken;
   const initial = {
-    pname: '',
-    ptitle: '',
-    pid: '',
-    pcategory: '',
-    price: '',
-    pstockvalue: ''
-
-  }
+    pname: "",
+    ptitle: "",
+    pid: "",
+    pcategory: "",
+    price: "",
+    pstockvalue: "",
+  };
   const [product, setProduct] = useState(initial);
 
   const onValueChange = (e) => {
-    setProduct({ ...product, [e.target.name]: e.target.value })
-
+    setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     //console.log(token_value);
     await productAdd(product, token_value);
+
 
 
   }
@@ -89,12 +87,12 @@ const Addproduct = () => {
 
 
 
+
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-
-export default Addproduct
+export default Addproduct;

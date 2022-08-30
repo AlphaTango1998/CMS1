@@ -48,18 +48,18 @@ function Setting() {
 
               ) : (
                 
-                userData.map((value, id) => (
+              
                
-                  <div className="card m-2   " key={id}>
+                  <div className="card m-2   " >  
                   <div >
                     <div className="row">
                         <div className="col-lg-6 text-center">  
                         <img alt="alternative" src= {imagePath} className="card-img-center" /> </div>
                         <div className="col-lg-6 px-5 pb-3">   
-                                <p className="card-text pt-5"> <span className="h5  "> Name:</span><span className="h5 px-4">{value.name} </span></p> 
-                                <p className="card-text "> <span className="h5 ">Email:</span> <span className="h5 px-4">{value.email} </span> </p>
-                                <p className="card-text "> <span className="h5 ">Phone:</span> <span className="h5 px-4"> {value.phone}</span></p>
-                                <p className="card-text "><span className="h5 ">DOB:</span> <span className="h5 px-4"> {value.dob}</span></p>
+                                <p className="card-text pt-5"> <span className="h5  "> Name:</span><span className="h5 px-4">{userData.name} </span></p> 
+                                <p className="card-text "> <span className="h5 ">Email:</span> <span className="h5 px-4">{userData.email} </span> </p>
+                                <p className="card-text "> <span className="h5 ">Phone:</span> <span className="h5 px-4"> {userData.phone}</span></p>
+                                <p className="card-text "><span className="h5 ">DOB:</span> <span className="h5 px-4"> {userData.dob}</span></p>
                         
                          </div>
                     </div>
@@ -68,7 +68,7 @@ function Setting() {
                          
               </div>
               
-                 ))
+             
               )}
             </div>
           </div>
