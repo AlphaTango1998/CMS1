@@ -39,6 +39,7 @@ router.delete("/productlist/:id", Authenticate, deleteproduct);
 
 router.get("/login_data", Authenticate, getAll);
 
+
 router.get("/order_data", Authenticate, getOrder);
 router.get("/order_data/:id", Authenticate, getOrderData);
 
@@ -50,3 +51,4 @@ router.put("/EditAddress/:id", Authenticate, EditAddress);
 router.delete("/address/:id", Authenticate, DeleteAddress);
 
 export default router;
+
