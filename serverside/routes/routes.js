@@ -1,6 +1,6 @@
 import express from "express";
 
-import { addUser, getUser, getAll, getOrder,addProduct, 
+import { addUser, getUser, getAll, getOrder,addProduct, addCategories,getCategories,
     getOrderData,totalOrder,totalUser,totalSales,
     getAdmin,productlist,deleteproduct,getAddress,
     getAddressDetail,EditAddress,DeleteAddress,addAddress} from "../controllers/cms_controller.js";

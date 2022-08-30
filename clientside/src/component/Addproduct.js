@@ -13,11 +13,10 @@ const Addproduct = () => {
   let token_value = cookies.jwtoken;
   const initial = {
     pname: "",
-    ptitle: "",
-    pid: "",
     pcategory: "",
     price: "",
     pstockvalue: "",
+    pdescription:""
   };
   const [product, setProduct] = useState(initial);
 
@@ -27,7 +26,7 @@ const Addproduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //console.log(token_value);
+    console.log(product);
     await productAdd(product, token_value);
 
 
@@ -56,7 +55,7 @@ const Addproduct = () => {
                       <tr className='tr'>
                         <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pname" className="form-control" placeholder="Productname" /></td>
                         <td className='td'>
-                          <select className="form-control" onChange={(e) => onValueChange(e)} name="ptitle" placeholder='Brand'>
+                          <select className="form-control" onChange={(e) => onValueChange(e)} name="pcategory">
                             <option value="categories">Categories</option>
                             <option value="Nike">cat_name</option>
                           </select>
@@ -71,7 +70,7 @@ const Addproduct = () => {
 
                       <tr className='tr'>
                         <td className='td' colSpan={2}>
-                        <input type="textbox" placeholder='Description' className="form-control" resize ="true"/>
+                        <input type="textbox" placeholder='Description' className="form-control" resize ="true" onChange={(e) => onValueChange(e)} name="pdescription"/>
                         </td>
                       </tr>
                     
