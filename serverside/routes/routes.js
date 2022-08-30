@@ -1,6 +1,8 @@
 import express from "express";
-import { addUser, getUser, getAll, getOrder,addProduct, getOrderData,totalOrder,totalUser,totalSales,
-    getAdmin,productlist,deleteproduct,getAddress,getAddressDetail,EditAddress,DeleteAddress,addAddress} from "../controllers/cms_controller.js";
+import { addUser, getUser, getAll, getOrder,addProduct, 
+    getOrderData,totalOrder,totalUser,totalSales,
+    getAdmin,productlist,deleteproduct,getAddress,
+    getAddressDetail,EditAddress,DeleteAddress,addAddress} from "../controllers/cms_controller.js";
 
 import Authenticate from "../middleware/authenticate.js";
 
