@@ -50,7 +50,7 @@ function Setting() {
                 
               
                
-                  <div className="card m-2   " >
+                  <div className="card m-2   " >  
                   <div >
                     <div className="row">
                         <div className="col-lg-6 text-center">  
