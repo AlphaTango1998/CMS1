@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { addcategories, getCategories } from "../service/api";
 import { useCookies } from "react-cookie";
+
 function Categories() {
   const initial = {
     cat_name: "",
@@ -20,7 +21,7 @@ function Categories() {
     const categories_detail_data = await getCategories(token_value);
     setcategoriesData(categories_detail_data.data);
     console.log(categories_detail_data.data);
-    // console.log(address_detail_data.data);
+    
   };
 
   const onValueChange = (e) => {
