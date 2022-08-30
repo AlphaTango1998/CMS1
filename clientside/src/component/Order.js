@@ -10,7 +10,6 @@ function Order() {
 
     const [orderData, setOrderData] = useState();
     // eslint-disable-next-line
-
     const [cookies, setCookie] = useCookies(['user']);
     let token_value=cookies.jwtoken;
 
@@ -40,7 +39,9 @@ function Order() {
      <div>
     
 
-          { !orderData ? (
+
+          { ! orderData ? (
+
 
                      <div className="row mt-5">
                      <div className="card text-center">

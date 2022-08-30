@@ -143,6 +143,7 @@ export const addAddress = async (req, res) => {
     return res.status(422).json({ error: "plz filled the fields properly" });
   }
 
+
   try {
     const newAddress = new addressdata({
       address,
@@ -168,10 +169,12 @@ export const totalOrder = async (req, res) => {
   } catch (error) {
     res.status(401).json({ message: error.message });
   }
+
 };
 
 //order__Data
 export const totalUser = async (req, res) => {
+
   try {
     const users = await Userdata.find().countDocuments();
     //console.log(users);
@@ -278,6 +281,7 @@ export const addCategories = async (req, res) => {
 
     if (categoriesExist) {
       return res.status(422).json({ error: "Categories already exist" });
+
     }
 
     const newCategories = new categriesdata({ cat_name });
@@ -288,10 +292,12 @@ export const addCategories = async (req, res) => {
     console.log(error);
   }
 };
+
 //getCategories
 export const getCategories = async (req, res) => {
   try {
     const categories = await categriesdata.find();
+
 
     //  console.log(address);
     res.status(201).json(categories);

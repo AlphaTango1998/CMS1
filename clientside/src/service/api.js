@@ -19,6 +19,7 @@ export const getUser = async (data) => {
     console.log(error.message);
   }
 };
+
 //get all user data
 export const getAll = async (data) => {
   try {
@@ -125,6 +126,7 @@ export const getAdmin = async (data) => {
 };
 
 //get all product  data
+
 
 export const getProductAll = async () => {
   try {

@@ -7,21 +7,22 @@ function Login_user() {
   const [userData, setUserData] = useState();
   // eslint-disable-next-line
 
-  const [cookies, setCookie] = useCookies(["user"]);
-  let token_value = cookies.jwtoken;
-  useEffect(() => {
-    getAllUser();
-  }, []);
-  const getAllUser = async () => {
-    const user_data = await getAll(token_value);
-    setUserData(user_data);
 
-    // console.log(user_data)
-    //console.log(user_data.data[0].fname)
+    const [userData, setUserData] = useState();
+    // eslint-disable-next-line
+    const [cookies, setCookie] = useCookies(['user']);
+    let token_value=cookies.jwtoken;
+       useEffect(()=>{
+        getAllUser();
+      },[]);
+    const getAllUser = async() => {
+       const user_data = await getAll( token_value);
+           setUserData(user_data);
   };
 
   return (
     <>
+
       <div>
         <div className="row">
           <div className="col-lg-12">
@@ -51,7 +52,6 @@ function Login_user() {
                       <th>DOB</th>
                     </tr>
                   </thead>
-
                   <tbody>
                     {userData.data.map((value, id) => (
                       <tr key={id}>
