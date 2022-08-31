@@ -21,12 +21,12 @@ function Login_user() {
       <div>
         <div className="row">
           <div className="col-lg-12">
-            <Navbar />{" "}
+            <Navbar />
           </div>
         </div>
         <div className="row">
           <div className="col-lg-3">
-            <Sidebar />{" "}
+            <Sidebar />
           </div>
           <div className="col-lg-9">
             <h3 className="text-center">Login user Details </h3>

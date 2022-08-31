@@ -32,9 +32,7 @@ export const getAll = async (data) => {
     console.log(error.message);
   }
 };
-
 //get all order data
-
 export const getOrder = async () => {
   try {
     const result = await axios.get("http://localhost:8000/order_data", {
@@ -46,9 +44,7 @@ export const getOrder = async () => {
     console.log(error.message);
   }
 };
-
 //get all order data  into one order
-
 export const getorderData = async (id) => {
   try {
     const result = await axios.get(`http://localhost:8000/order_data/${id}`, {
@@ -72,7 +68,6 @@ export const productAdd = async (data) => {
     console.log(error.message);
   }
 };
-
 export const totalOrder = async () => {
   try {
     const result = await axios.get(`http://localhost:8000/home/order`, {
@@ -84,9 +79,7 @@ export const totalOrder = async () => {
     console.log(error.message);
   }
 };
-
 //get total number of user
-
 export const totalUser = async () => {
   try {
     const result1 = await axios.get(`http://localhost:8000/home/user`, {
@@ -99,7 +92,6 @@ export const totalUser = async () => {
   }
 };
 //get total sales of system
-
 export const totalSales = async () => {
   try {
     const result2 = await axios.get(`http://localhost:8000/home/sales`, {
@@ -111,7 +103,6 @@ export const totalSales = async () => {
     console.log(error.message);
   }
 };
-
 //Admin Login Data
 export const getAdmin = async (data) => {
   try {
@@ -124,10 +115,7 @@ export const getAdmin = async (data) => {
     console.log(error.message);
   }
 };
-
 //get all product  data
-
-
 export const getProductAll = async () => {
   try {
     const result = await axios.get(`http://localhost:8000/productlist`, {
@@ -139,7 +127,6 @@ export const getProductAll = async () => {
     console.log(error.message);
   }
 };
-
 export const deleteProduct = async (id) => {
   try {
     return await axios.delete(`http://localhost:8000/productlist/${id}`, {
@@ -149,7 +136,6 @@ export const deleteProduct = async (id) => {
     console.log(error.message);
   }
 };
-
 // All Addresses
 export const getAddress = async (data) => {
   try {
@@ -162,7 +148,6 @@ export const getAddress = async (data) => {
     console.log(error.message);
   }
 };
-
 //delete address
 export const deleteAddress = async (id) => {
   try {
@@ -205,9 +190,11 @@ export const addcategories = async (data) => {
       withCredentials: true,
     });
     // console.log(result);
+    //
     return result;
   } catch (error) {
-    console.log(error.message);
+    // console.log(error);
+    alert("message:" + error.response.data.error);
   }
 };
 // All Addresses

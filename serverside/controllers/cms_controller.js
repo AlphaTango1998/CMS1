@@ -264,11 +264,11 @@ export const DeleteAddress = async (req, res) => {
   }
 };
 
-//register api
+//register add categories
 export const addCategories = async (req, res) => {
   const { cat_name } = req.body;
   //check filed is empty or not
-  console.log(cat_name);
+  //console.log(cat_name);
   if (!cat_name) {
     return res.status(422).json({ error: "plz filled the fields properly" });
   }

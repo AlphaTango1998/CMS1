@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-import { Link, useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { addcategories, getCategories } from "../service/api";
 import { useCookies } from "react-cookie";
 function Categories() {
@@ -13,14 +13,14 @@ function Categories() {
   // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(["user"]);
   let token_value = cookies.jwtoken;
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   useEffect(() => {
     getdata();
   }, []);
   const getdata = async () => {
     const categories_detail_data = await getCategories(token_value);
     setcategoriesData(categories_detail_data.data);
-    console.log(categories_detail_data.data);
+    // console.log(categories_detail_data.data);
     // console.log(address_detail_data.data);
   };
 
@@ -30,9 +30,9 @@ function Categories() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("categories add", categories);
-    const response = await addcategories(categories, token_value);
-    console.log(response);
+    //  console.log("categories add", categories);
+    await addcategories(categories, token_value);
+    // console.log(response);
     getdata();
   };
   return (
