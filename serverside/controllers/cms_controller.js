@@ -335,7 +335,6 @@ export const setUser_register = async (req, res) => {
 export const getUser_login = async (req, res) => {
   console.log("hii");
   const { uemail, upassword } = req.body;
-  console.log();
   //check filed is empty or not
   console.log(uemail, upassword);
   if (!uemail || !upassword) {

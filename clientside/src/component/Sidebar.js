@@ -10,6 +10,7 @@ function Sidebar() {
 
   return (
     <>
+
       <div className="row">
         <nav
           id="sidebarMenu"
@@ -83,6 +84,7 @@ function Sidebar() {
             </ul>
           </div>
         </nav>
+
       </div>
     </>
   );
