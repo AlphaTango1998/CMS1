@@ -3,7 +3,8 @@ import express from "express";
 import { addUser, getUser, getAll, getOrder,addProduct, 
     getOrderData,totalOrder,totalUser,totalSales,
     getAdmin,productlist,deleteproduct,getAddress,
-    getAddressDetail,EditAddress,DeleteAddress,addAddress} from "../controllers/cms_controller.js";
+    getAddressDetail,EditAddress,DeleteAddress,addAddress, setUser_register,
+  getUser_login,} from "../controllers/cms_controller.js";
 
 
 import Authenticate from "../middleware/authenticate.js";
@@ -34,6 +35,9 @@ router.get("/address", Authenticate, getAddress);
 router.get("/AddressDetail/:id", Authenticate, getAddressDetail);
 router.put("/EditAddress/:id", Authenticate, EditAddress);
 router.delete("/address/:id", Authenticate, DeleteAddress);
+//website side link
+router.post("/user/register", setUser_register);
+router.post("/user/login", getUser_login);
 
 export default router;
 
