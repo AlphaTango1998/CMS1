@@ -299,3 +299,61 @@ export const getCategories = async (req, res) => {
     res.status(401).json({ message: error.message });
   }
 };
+
+export const setUser_register = async (req, res) => {
+  const { ufname, ulname, uemail, uphone, udob, upassword } = req.body;
+  //check filed is empty or not
+
+  if (!ufname || !ulname || !uemail || !uphone || !udob || !upassword) {
+    return res.status(422).json({ error: "plz filled the fields properly" });
+  }
+  //find email not present already
+  try {
+    const userExist = await Userdata.findOne({ email: uemail });
+
+    if (userExist) {
+      return res.status(422).json({ error: "email already exist" });
+    }
+
+    const newUser = new Userdata({
+      fname: ufname,
+      lname: ulname,
+      email: uemail,
+      phone: uphone,
+      dob: udob,
+      password: upassword,
+    });
+
+    await newUser.save();
+    res.status(201).json(newUser);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//website login code
+export const getUser_login = async (req, res) => {
+  console.log("hii");
+  const { uemail, upassword } = req.body;
+  console.log();
+  //check filed is empty or not
+  console.log(uemail, upassword);
+  if (!uemail || !upassword) {
+    return res.status(422).json({ error: "plz filled the fields properly" });
+  }
+  //find email not present already
+  try {
+    const userpresent = await Userdata.findOne({
+      email: uemail,
+      password: upassword,
+    });
+
+    if (!userpresent) {
+      return res.status(422).json({ error: "invalied crenditial" });
+    } else {
+      return res.status(201).json({ message: "user signin successfully" });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
