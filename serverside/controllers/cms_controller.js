@@ -1,6 +1,6 @@
 import Cmsuser from "../schema/dbschema.js";
 import Userdata from "../schema/userschema.js";
-import ProductData from "../schema/productschema.js";
+import Product from "../schema/productschema.js";
 import Orderdata from "../schema/orderschema.js";
 import addressdata from "../schema/addressschema.js";
 import categriesdata from "../schema/categriesschems.js";
@@ -196,8 +196,9 @@ export const totalSales = async (req, res) => {
 
 export const productlist = async (req, res) => {
   try {
+    
     const products = await Product.find();
-    //console.log(users);
+    //console.log(products);
     res.status(201).json(products);
   } catch (error) {
     res.status(401).json({ message: error.message });
