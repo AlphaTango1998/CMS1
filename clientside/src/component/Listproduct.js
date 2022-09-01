@@ -10,7 +10,6 @@ function Listproduct() {
     // eslint-disable-next-line
     const [cookies, setCookie] = useCookies(['user']);
     const navigate = useNavigate();
-    
     let token_value=cookies.jwtoken;
        useEffect(()=>{
         getAllProduct();
@@ -25,6 +24,7 @@ function Listproduct() {
      const deleteUserDetails = async (id) =>{
           await deleteProduct(id, token_value);
           
+          navigate('/home');
     }
 
   return (
@@ -54,11 +54,11 @@ function Listproduct() {
            <thead>
              <tr>
                <th>s.no</th>
-               <th>Product Name</th>            
-               <th>Category</th>
-               <th>Price</th>
-               <th>Stock Value</th>
-               <th>Description</th>
+                <th>Product Name</th>
+               <th >Category</th>
+               <th >Price</th>
+               <th >Stock Value</th>
+               <th >Description</th>
                <th >Delete</th>
                </tr>
            </thead>
