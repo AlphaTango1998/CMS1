@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import { getAll } from "../service/api";
 import { useCookies } from "react-cookie";
 
+
 function Login_user() {
  
     const [userData, setUserData] = useState();
@@ -16,20 +17,20 @@ function Login_user() {
     const getAllUser = async() => {
        const user_data = await getAll( token_value);
            setUserData(user_data);
+
   };
 
   return (
     <>
-
       <div>
         <div className="row">
           <div className="col-lg-12">
-            <Navbar />{" "}
+            <Navbar />
           </div>
         </div>
         <div className="row">
           <div className="col-lg-3">
-            <Sidebar />{" "}
+            <Sidebar />
           </div>
           <div className="col-lg-9">
             <h3 className="text-center">Login user Details </h3>

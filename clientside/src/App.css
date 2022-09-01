@@ -48,7 +48,7 @@
 }
 .h2{
   font-variant-caps: all-small-caps;
-  color: rgb(19, 51, 112);
+  color: cornflowerblue;
 }
 
 .Register{
@@ -103,11 +103,11 @@
 }
 .regibutton {
   background-color: white;
-  color: rgba(0, 0, 0, 0.289);
+  color: black;
   border: 3px solid #555555;
 }
 
 .regibutton:hover {
-  background-color: #0d6efd;
+  background-color: #555555;
   color: white;
 }

@@ -1,9 +1,28 @@
 import express from "express";
 
-import { addUser, getUser, getAll, getOrder,addProduct, addCategories,getCategories,
-    getOrderData,totalOrder,totalUser,totalSales,
-    getAdmin,productlist,deleteproduct,getAddress,
-    getAddressDetail,EditAddress,DeleteAddress,addAddress} from "../controllers/cms_controller.js";
+import {
+  addUser,
+  getUser,
+  getAll,
+  getOrder,
+  addProduct,
+  getOrderData,
+  totalOrder,
+  totalUser,
+  totalSales,
+  getAdmin,
+  productlist,
+  deleteproduct,
+  getAddress,
+  getAddressDetail,
+  EditAddress,
+  DeleteAddress,
+  addAddress,
+  addCategories,
+  getCategories,
+  setUser_register,
+  getUser_login,
+} from "../controllers/cms_controller.js";
 
 
 import Authenticate from "../middleware/authenticate.js";
@@ -24,7 +43,6 @@ router.delete("/productlist/:id", Authenticate, deleteproduct);
 
 router.get("/login_data", Authenticate, getAll);
 
-
 router.get("/order_data", Authenticate, getOrder);
 router.get("/order_data/:id", Authenticate, getOrderData);
 
@@ -34,6 +52,8 @@ router.get("/address", Authenticate, getAddress);
 router.get("/AddressDetail/:id", Authenticate, getAddressDetail);
 router.put("/EditAddress/:id", Authenticate, EditAddress);
 router.delete("/address/:id", Authenticate, DeleteAddress);
+//website side link
+router.post("/user/register", setUser_register);
+router.post("/user/login", getUser_login);
 
 export default router;
-

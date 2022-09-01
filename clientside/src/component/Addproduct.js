@@ -21,13 +21,15 @@ const Addproduct = () => {
   };
 
 
+
   let token_value = cookies.jwtoken;
   const initial = {
     pname: "",
     pcategory: "",
     price: "",
     pstockvalue: "",
-    pdescription: ""
+    pdescription: "",
+
   };
   const [product, setProduct] = useState(initial);
 
@@ -41,26 +43,30 @@ const Addproduct = () => {
     console.log(product);
     await productAdd(product, token_value);
 
-  }
+  };
+
 
   return (
     <>
-      <div style={{ "background": "#f2edf3" }}>
+      <div style={{ background: "#f2edf3" }}>
         <div className="row">
-          <div className="col-lg-12"><Navbar /> </div>
+          <div className="col-lg-12">
+            <Navbar />{" "}
+          </div>
         </div>
         <div className="row">
-          <div className="col-lg-3"><Sidebar /> </div>
-
+          <div className="col-lg-3">
+            <Sidebar />{" "}
+          </div>
 
           <div className="col-lg-9">
-
             <div className="Register">
               <form id="ap" onSubmit={handleSubmit}>
                 <center>
-                  <h2 className='h2 '>Add Product</h2>
-                  <table className='Regitable'>
+                  <h2 className="h2 ">Add Product</h2>
+                  <table className="Regitable">
                     <tbody>
+
 
                       <tr className='tr'>
                         <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pname" className="form-control" placeholder="Productname" /></td>
@@ -69,20 +75,22 @@ const Addproduct = () => {
                             <select className="form-control" onChange={(e) => onValueChange(e)} name="pcategory">
                               <option value="" disabled={true} selected={true} hidden={true}>Categories</option>
 
+
                               <option value="0">Data not Found</option>
                             </select>
                           ) : (
+
 
                             <select className="form-control" onChange={(e) => onValueChange(e)} name="pcategory">
                               <option value="" disabled={true} selected={true} hidden={true}>Categories</option>
                               {categoriesData.map((value, id) => (
                                 <option key={id} value={value.cat_name}> {value.cat_name}</option>
+
                               ))}
                             </select>
                           )}
                         </td>
                       </tr>
-
 
                       <tr className='tr'>
                         <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="price" className="form-control" placeholder='Price' /></td>
@@ -99,14 +107,10 @@ const Addproduct = () => {
                   </table>
 
                   <input type="submit" value="Submit" className="button regibutton" />
+
                 </center>
               </form>
             </div>
-
-
-
-
-
           </div>
         </div>
       </div>

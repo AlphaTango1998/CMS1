@@ -20,8 +20,7 @@ function Categories() {
   const getdata = async () => {
     const categories_detail_data = await getCategories(token_value);
     setcategoriesData(categories_detail_data.data);
-    console.log(categories_detail_data.data);
-    
+
   };
 
   const onValueChange = (e) => {
@@ -30,9 +29,9 @@ function Categories() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("categories add", categories);
-    const response = await addcategories(categories, token_value);
-    console.log(response);
+    //  console.log("categories add", categories);
+    await addcategories(categories, token_value);
+    // console.log(response);
     getdata();
   };
   return (

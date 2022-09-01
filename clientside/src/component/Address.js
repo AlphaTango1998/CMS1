@@ -6,14 +6,11 @@ import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
 
 function Address() {
-
   // eslint-disable-next-line
-  const [cookies, setCookie] = useCookies(['user']);
-  let token_value=cookies.jwtoken;
+  const [cookies, setCookie] = useCookies(["user"]);
+  let token_value = cookies.jwtoken;
 
   const [addressData, setAddress] = useState();
-
- 
 
   useEffect(() => {
     getAllAddress();
@@ -45,9 +42,7 @@ function Address() {
           <div className="col-lg-9">
             <h3 className="text-center">Addresses </h3>
             <div>
-
               {!addressData ? (
-
                 <div className="row mt-5">
                   <div className="card text-center">
                     <div className="card-header">data not found</div>
