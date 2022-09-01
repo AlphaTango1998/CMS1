@@ -17,7 +17,10 @@ const Addproduct = () => {
     const categories_detail_data = await getCategories(token_value);
     setcategoriesData(categories_detail_data.data);
     console.log(categories_detail_data.data);
+
   };
+
+
 
   let token_value = cookies.jwtoken;
   const initial = {
@@ -26,6 +29,7 @@ const Addproduct = () => {
     price: "",
     pstockvalue: "",
     pdescription: "",
+
   };
   const [product, setProduct] = useState(initial);
 
@@ -38,7 +42,9 @@ const Addproduct = () => {
     document.getElementById("ap").reset();
     console.log(product);
     await productAdd(product, token_value);
+
   };
+
 
   return (
     <>
@@ -60,100 +66,48 @@ const Addproduct = () => {
                   <h2 className="h2 ">Add Product</h2>
                   <table className="Regitable">
                     <tbody>
-                      <tr className="tr">
-                        <td className="td">
-                          <input
-                            type="text"
-                            onChange={(e) => onValueChange(e)}
-                            name="pname"
-                            className="form-control"
-                            placeholder="Productname"
-                          />
-                        </td>
-                        <td className="td">
+
+
+                      <tr className='tr'>
+                        <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pname" className="form-control" placeholder="Productname" /></td>
+                        <td className='td'>
                           {!categoriesData ? (
-                            <select
-                              className="form-control"
-                              onChange={(e) => onValueChange(e)}
-                              name="pcategory"
-                            >
-                              <option
-                                value=""
-                                disabled={true}
-                                selected={true}
-                                hidden={true}
-                              >
-                                Categories
-                              </option>
+                            <select className="form-control" onChange={(e) => onValueChange(e)} name="pcategory">
+                              <option value="" disabled={true} selected={true} hidden={true}>Categories</option>
+
 
                               <option value="0">Data not Found</option>
                             </select>
                           ) : (
-                            <select
-                              className="form-control"
-                              onChange={(e) => onValueChange(e)}
-                              name="pcategory"
-                            >
-                              <option
-                                value=""
-                                disabled={true}
-                                selected={true}
-                                hidden={true}
-                              >
-                                Categories
-                              </option>
+
+
+                            <select className="form-control" onChange={(e) => onValueChange(e)} name="pcategory">
+                              <option value="" disabled={true} selected={true} hidden={true}>Categories</option>
                               {categoriesData.map((value, id) => (
-                                <option key={id} value={value.cat_name}>
-                                  {" "}
-                                  {value.cat_name}
-                                </option>
+                                <option key={id} value={value.cat_name}> {value.cat_name}</option>
+
                               ))}
                             </select>
                           )}
                         </td>
                       </tr>
 
-                      <tr className="tr">
-                        <td className="td">
-                          <input
-                            type="text"
-                            onChange={(e) => onValueChange(e)}
-                            name="price"
-                            className="form-control"
-                            placeholder="Price"
-                          />
-                        </td>
-                        <td className="td">
-                          <input
-                            type="text"
-                            onChange={(e) => onValueChange(e)}
-                            name="pstockvalue"
-                            className="form-control"
-                            placeholder="Stockvalue"
-                          />
+                      <tr className='tr'>
+                        <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="price" className="form-control" placeholder='Price' /></td>
+                        <td className='td'><input type="text" onChange={(e) => onValueChange(e)} name="pstockvalue" className="form-control" placeholder='Stockvalue' /></td>
+                      </tr>
+
+                      <tr className='tr'>
+                        <td className='td' colSpan={2}>
+                          <input type="textbox" placeholder='Description' className="form-control" resize="true" onChange={(e) => onValueChange(e)} name="pdescription" />
                         </td>
                       </tr>
 
-                      <tr className="tr">
-                        <td className="td" colSpan={2}>
-                          <input
-                            type="textbox"
-                            placeholder="Description"
-                            className="form-control"
-                            resize="true"
-                            onChange={(e) => onValueChange(e)}
-                            name="pdescription"
-                          />
-                        </td>
-                      </tr>
                     </tbody>
                   </table>
 
-                  <input
-                    type="submit"
-                    value="Submit"
-                    className="button regibutton"
-                  />
+                  <input type="submit" value="Submit" className="button regibutton" />
+
                 </center>
               </form>
             </div>

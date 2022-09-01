@@ -55,11 +55,10 @@ function Listproduct() {
              <tr>
                <th>s.no</th>
                 <th>Product Name</th>
-               <th >Title Name</th>
-               <th >Product Id</th>
                <th >Category</th>
                <th >Price</th>
                <th >Stock Value</th>
+               <th >Description</th>
                <th >Delete</th>
                </tr>
            </thead>
@@ -71,11 +70,10 @@ function Listproduct() {
           <tr key={id}>  
           <td > {id+1}</td>
           <td > { value.name } </td>
-          <td > { value.title } </td>
-          <td > { value.id } </td>
           <td > { value.category } </td>
           <td > { value.price } </td>
           <td > { value.stockvalue } </td>
+          <td > { value.description } </td>
           <td><button onClick={()=>{ deleteUserDetails(value.id)} }>Delete</button></td>
           </tr>
           )

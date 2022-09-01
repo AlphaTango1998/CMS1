@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-//import { useNavigate } from "react-router-dom";
 import { addcategories, getCategories } from "../service/api";
 import { useCookies } from "react-cookie";
+
 function Categories() {
   const initial = {
     cat_name: "",
@@ -13,15 +13,14 @@ function Categories() {
   // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(["user"]);
   let token_value = cookies.jwtoken;
-  //const navigate = useNavigate();
+
   useEffect(() => {
     getdata();
   }, []);
   const getdata = async () => {
     const categories_detail_data = await getCategories(token_value);
     setcategoriesData(categories_detail_data.data);
-    // console.log(categories_detail_data.data);
-    // console.log(address_detail_data.data);
+
   };
 
   const onValueChange = (e) => {

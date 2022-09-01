@@ -64,6 +64,7 @@ export const productAdd = async (data) => {
     });
     //console.log(result);
     return result;
+    
   } catch (error) {
     console.log(error.message);
   }
