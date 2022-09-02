@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+
+import { getProductAll } from '../service/api';
 import { getAll } from "../service/api";
 import { useCookies } from "react-cookie";
 
@@ -8,16 +10,22 @@ import { useCookies } from "react-cookie";
 function Login_user() {
  
     const [userData, setUserData] = useState();
+    const [product, setProductData] = useState();
     // eslint-disable-next-line
     const [cookies, setCookie] = useCookies(['user']);
-    let token_value=cookies.jwtoken;
+    let token_value = cookies.jwtoken;
        useEffect(()=>{
         getAllUser();
+        getAllProduct();
       },[]);
     const getAllUser = async() => {
        const user_data = await getAll( token_value);
            setUserData(user_data);
 
+  };
+  const getAllProduct = async () => {
+    const product_data = await getProductAll(token_value);
+    setProductData(product_data);
   };
 
   return (
@@ -49,6 +57,7 @@ function Login_user() {
                       <th>Email</th>
                       <th>Phone</th>
                       <th>DOB</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
@@ -60,7 +69,7 @@ function Login_user() {
                         <td> {value.email} </td>
                         <td> {value.phone} </td>
                         <td> {value.dob} </td>
-                      </tr>
+                        </tr>
                     ))}
                   </tbody>
                 </table>

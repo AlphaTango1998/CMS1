@@ -109,7 +109,12 @@ const Addproduct = () => {
                   <input type="submit" value="Submit" className="button regibutton" />
 
                 </center>
+  
               </form>
+            
+            </div>
+            <div className="Register">
+            <input type="submit" value="Make Order" className="button regibutton" />
             </div>
           </div>
         </div>
