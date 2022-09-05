@@ -268,16 +268,13 @@ export const getAddressDetail = async (req, res) => {
 
 //edit address
 export const EditAddress = async (req, res) => {
-  //  console.log("hee");
-  const address = req.body;
-
-  const editAddress = new addressdata(address);
-  try {
-    const address = await addressdata.updateOne(
-      { _id: req.params.id },
-      editAddress
-    );
-    res.status(201).json(address);
+   const address1 = req.body;
+  const id = req.params.id;
+    try {
+    const address2 = await addressdata.findOneAndUpdate(id, address1, {
+      useFindAndModify: false,
+    });
+    res.status(201).json(address2);
   } catch (error) {
     res.status(401).json({ message: error.message });
   }
@@ -378,7 +375,9 @@ export const getUser_login = async (req, res) => {
     if (!userpresent) {
       return res.status(422).json({ error: "invalied crenditial" });
     } else {
-      return res.status(201).json({ message: "user signin successfully" });
+
+      return res.status(201).json({ message: "user signin successfully", id: userpresent._id });
+
     }
   } catch (error) {
     console.log(error);
