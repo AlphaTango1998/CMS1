@@ -40,7 +40,7 @@ const Addproduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     document.getElementById("ap").reset();
-    console.log(product);
+   // console.log(product);
     await productAdd(product, token_value);
 
   };
@@ -109,8 +109,11 @@ const Addproduct = () => {
                   <input type="submit" value="Submit" className="button regibutton" />
 
                 </center>
+  
               </form>
+            
             </div>
+            
           </div>
         </div>
       </div>
