@@ -1,15 +1,15 @@
-
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 const orderSchema = new mongoose.Schema({
-    username:String,
-    productname:String,
-    quantity:String,
-    price:String,
-    totalamount:Number,
-    phonenumber:String,
-    
+ 
+  email: String,
+  pname: String,
+  category:String,
+  quantity: Number,     
+  price: Number,
+  totalamount: Number,
+  
 });
 
-const orderdatas = mongoose.model("orderdatas",orderSchema);
+const orderdatas = mongoose.model("orderdatas", orderSchema);
 
 export default orderdatas;

@@ -1,6 +1,6 @@
 import Cmsuser from "../schema/dbschema.js";
 import Userdata from "../schema/userschema.js";
-import Product from "../schema/productschema.js";
+import ProductData from "../schema/productschema.js";
 import Orderdata from "../schema/orderschema.js";
 import addressdata from "../schema/addressschema.js";
 import categriesdata from "../schema/categriesschems.js";
@@ -64,11 +64,9 @@ export const getUser = async (req, res) => {
 
 //user__Data
 export const getAll = async (req, res) => {
-  // console.log("token",req.token,"user-->",req.rootUser,"userId--->",req.userID);
 
   try {
     const users = await Userdata.find();
-    // console.log(users);
     res.status(201).json(users);
   } catch (error) {
     res.status(401).json({ message: error.message });
@@ -79,17 +77,43 @@ export const getAll = async (req, res) => {
 export const getOrder = async (req, res) => {
   try {
     const orders = await Orderdata.find();
-    //    console.log(orders);
     res.status(201).json(orders);
   } catch (error) {
     res.status(401).json({ message: error.message });
   }
 };
+
+//createOrder
+export const Incoming_order = async (req, res) => {
+
+  const { uid, pname, category, qty, price, tamount } = req.body;
+
+  if (!uid || !pname || !category || !qty || !price || !tamount ) {
+    return res.status(422).json({ error: "Order data not complete" });
+  }
+  console.log("Hi");
+  try {
+    const Iorder = new Orderdata({
+      email: uid,
+      productname: pname,
+      category: category,
+      quantity: qty,
+      price: price,
+      totalamount: tamount,
+    });
+      await Iorder.save();
+      res.status(201).json(Iorder);
+  } catch (error) {
+    res.status(401).json({ message: error.message });
+  }
+};
+
+
+
 //order__Data
 export const getOrderData = async (req, res) => {
   try {
     const orders = await Orderdata.findById(req.params.id);
-    // console.log(orders);
     res.status(201).json(orders);
   } catch (error) {
     res.status(401).json({ message: error.message });
@@ -97,22 +121,26 @@ export const getOrderData = async (req, res) => {
 };
 //add product api
 export const addProduct = async (req, res) => {
-  const { pname, ptitle, pid, pcategory, price, pstockvalue } = req.body;
-  //check filed is empty or not
-  //console.log(pname, ptitle, pid, pcategory, price, pstockvalue);
-  if (!pname || !ptitle || !pid || !pcategory || !price || !pstockvalue) {
-    return res.status(422).json({ error: "plz filled the fields properly" });
+  const { pname, pcategory, price, pstockvalue, pdescription } = req.body;
+  console.log(pname, pcategory, price, pstockvalue, pdescription);
+  if (!pname || !pcategory || !price || !pstockvalue || !pdescription) {
+    return res.status(422).json({ error: "plz fill the fields properly" });
   }
+
+
+
   //find email not present already
   try {
-    const newProduct = new Product({
+    const newProduct = new ProductData({
       name: pname,
-      title: ptitle,
-      id: pid,
       category: pcategory,
       price: price,
       stockvalue: pstockvalue,
+      description: pdescription
     });
+
+
+
     // console.log(newProduct);
 
     await newProduct.save();
@@ -170,7 +198,7 @@ export const totalOrder = async (req, res) => {
   }
 };
 
-//order__Data
+
 export const totalUser = async (req, res) => {
   try {
     const users = await Userdata.find().countDocuments();
@@ -196,8 +224,9 @@ export const totalSales = async (req, res) => {
 
 export const productlist = async (req, res) => {
   try {
-    const products = await Product.find();
-    //console.log(users);
+    
+    const products = await ProductData.find();
+    console.log(products);
     res.status(201).json(products);
   } catch (error) {
     res.status(401).json({ message: error.message });
@@ -217,7 +246,6 @@ export const deleteproduct = async (req, res) => {
 export const getAddress = async (req, res) => {
   try {
     const address = await addressdata.find().populate("addedBy");
-
     //  console.log(address);
     res.status(201).json(address);
   } catch (error) {
@@ -296,6 +324,7 @@ export const getCategories = async (req, res) => {
     res.status(401).json({ message: error.message });
   }
 };
+
 export const setUser_register = async (req, res) => {
   const { ufname, ulname, uemail, uphone, udob, upassword } = req.body;
   //check filed is empty or not
@@ -346,7 +375,9 @@ export const getUser_login = async (req, res) => {
     if (!userpresent) {
       return res.status(422).json({ error: "invalied crenditial" });
     } else {
+
       return res.status(201).json({ message: "user signin successfully", id: userpresent._id });
+
     }
   } catch (error) {
     console.log(error);

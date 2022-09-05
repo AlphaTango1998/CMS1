@@ -19,6 +19,7 @@ export const getUser = async (data) => {
     console.log(error.message);
   }
 };
+
 //get all user data
 export const getAll = async (data) => {
   try {
@@ -63,6 +64,7 @@ export const productAdd = async (data) => {
     });
     //console.log(result);
     return result;
+    
   } catch (error) {
     console.log(error.message);
   }
@@ -168,9 +170,10 @@ export const getAddressDetail = async (id) => {
     // console.log(result)
     return result;
   } catch (error) {
-    console.log(error.message);
+    console.log(error.message); 
   }
 };
+
 
 //edit address
 export const editAddress = async (address, id) => {
@@ -196,7 +199,6 @@ export const addcategories = async (data) => {
     alert("message:" + error.response.data.error);
   }
 };
-
 // All Addresses
 export const getCategories = async () => {
   try {
@@ -209,3 +211,4 @@ export const getCategories = async () => {
     console.log(error.message);
   }
 };
+
