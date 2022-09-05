@@ -87,22 +87,21 @@ export const getOrder = async (req, res) => {
 //createOrder
 export const Incoming_order = async (req, res) => {
 
-  const { uid, prname, category, qty, price, tamount } = req.body;
+  const { uid, pname, category, qty, price, tamount } = req.body;
 
-  if (!uid || !prname || !category || !qty || !price || !tamount ) {
+  if (!uid || !pname || !category || !qty || !price || !tamount ) {
     return res.status(422).json({ error: "Order data not complete" });
   }
-  
   try {
     const Iorder = new Inorder({
 
       email: uid,
-      productname: prname,
+      productname: pname,
       category: category,
       quantity: qty,
       price: price,
       totalamount: tamount
-      
+
     });
       await Iorder.save();
       res.status(201).json(Iorder);
