@@ -91,7 +91,7 @@ export const Incoming_order = async (req, res) => {
   if (!uid || !pname || !category || !qty || !price || !tamount ) {
     return res.status(422).json({ error: "Order data not complete" });
   }
-  console.log("Hi");
+  
   try {
     const Iorder = new Orderdata({
       email: uid,
