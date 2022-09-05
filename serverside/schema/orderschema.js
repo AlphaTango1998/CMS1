@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 const orderSchema = new mongoose.Schema({
  
-  email: String,
-  pname: String,
+  email:String,
+  productname:String,
   category:String,
-  quantity: Number,     
-  price: Number,
-  totalamount: Number,
+  quantity:Number,     
+  price:Number,
+  totalamount:Number,
   
 });
 

@@ -2,6 +2,7 @@ import Cmsuser from "../schema/dbschema.js";
 import Userdata from "../schema/userschema.js";
 import ProductData from "../schema/productschema.js";
 import Orderdata from "../schema/orderschema.js";
+import Inorder from "../schema/orderschema.js"
 import addressdata from "../schema/addressschema.js";
 import categriesdata from "../schema/categriesschems.js";
 import bcrypt from "bcryptjs";
@@ -91,15 +92,16 @@ export const Incoming_order = async (req, res) => {
   if (!uid || !pname || !category || !qty || !price || !tamount ) {
     return res.status(422).json({ error: "Order data not complete" });
   }
-  console.log("Hi");
   try {
-    const Iorder = new Orderdata({
+    const Iorder = new Inorder({
+
       email: uid,
       productname: pname,
       category: category,
       quantity: qty,
       price: price,
-      totalamount: tamount,
+      totalamount: tamount
+
     });
       await Iorder.save();
       res.status(201).json(Iorder);
