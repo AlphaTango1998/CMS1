@@ -273,9 +273,7 @@ export const EditAddress = async (req, res) => {
    const address1 = req.body;
   const id = req.params.id;
     try {
-    const address2 = await addressdata.findOneAndUpdate(id, address1, {
-      useFindAndModify: false,
-    });
+    const address2 = await addressdata.findByIdAndUpdate(id, address1);
     res.status(201).json(address2);
   } catch (error) {
     res.status(401).json({ message: error.message });
@@ -378,7 +376,7 @@ export const getUser_login = async (req, res) => {
       return res.status(422).json({ error: "invalied crenditial" });
     } else {
 
-      return res.status(201).json({ message: "user signin successfully", id: userpresent._id });
+      return res.status(201).json({ message: "user signin successfully", userpresent });
 
     }
   } catch (error) {
