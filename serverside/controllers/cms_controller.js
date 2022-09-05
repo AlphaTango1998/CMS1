@@ -1,7 +1,8 @@
 import Cmsuser from "../schema/dbschema.js";
 import Userdata from "../schema/userschema.js";
-import Product from "../schema/productschema.js";
+import ProductData from "../schema/productschema.js";
 import Orderdata from "../schema/orderschema.js";
+import Inorders from "../schema/orderschema.js";
 import addressdata from "../schema/addressschema.js";
 import categriesdata from "../schema/categriesschems.js";
 import bcrypt from "bcryptjs";
@@ -64,11 +65,9 @@ export const getUser = async (req, res) => {
 
 //user__Data
 export const getAll = async (req, res) => {
-  // console.log("token",req.token,"user-->",req.rootUser,"userId--->",req.userID);
 
   try {
     const users = await Userdata.find();
-    // console.log(users);
     res.status(201).json(users);
   } catch (error) {
     res.status(401).json({ message: error.message });
@@ -79,17 +78,41 @@ export const getAll = async (req, res) => {
 export const getOrder = async (req, res) => {
   try {
     const orders = await Orderdata.find();
-    //    console.log(orders);
     res.status(201).json(orders);
   } catch (error) {
     res.status(401).json({ message: error.message });
   }
 };
+
+//createOrder
+export const Incoming_order = async (req, res) => {
+  const { uname, pname, category, qty, price, tamount } = req.body;
+  if (!uname || !pname || !category || !qty || !price || !tamount ) {
+    return res.status(422).json({ error: "Order data not complete" });
+  }
+
+  try {
+    const Iorder = new Inorders({
+      username: uname,
+      productname: pname,
+      category: category,
+      quantity: qty,
+      price: price,
+      totalamount: tamount,
+    });
+      await Iorder.save();
+      res.status(201).json(Iorder);
+  } catch (error) {
+    res.status(401).json({ message: error.message });
+  }
+};
+
+
+
 //order__Data
 export const getOrderData = async (req, res) => {
   try {
     const orders = await Orderdata.findById(req.params.id);
-    // console.log(orders);
     res.status(201).json(orders);
   } catch (error) {
     res.status(401).json({ message: error.message });
@@ -98,12 +121,13 @@ export const getOrderData = async (req, res) => {
 //add product api
 export const addProduct = async (req, res) => {
   const { pname, pcategory, price, pstockvalue, pdescription } = req.body;
-  //console.log(price, pstock + "hi");
-  //check filed is empty or not
   console.log(pname, pcategory, price, pstockvalue, pdescription);
   if (!pname || !pcategory || !price || !pstockvalue || !pdescription) {
     return res.status(422).json({ error: "plz fill the fields properly" });
   }
+
+
+
   //find email not present already
   try {
     const newProduct = new ProductData({
@@ -113,6 +137,9 @@ export const addProduct = async (req, res) => {
       stockvalue: pstockvalue,
       description: pdescription
     });
+
+
+
     // console.log(newProduct);
 
     await newProduct.save();
@@ -170,7 +197,7 @@ export const totalOrder = async (req, res) => {
   }
 };
 
-//order__Data
+
 export const totalUser = async (req, res) => {
   try {
     const users = await Userdata.find().countDocuments();
@@ -197,8 +224,8 @@ export const totalSales = async (req, res) => {
 export const productlist = async (req, res) => {
   try {
     
-    const products = await Product.find();
-    //console.log(products);
+    const products = await ProductData.find();
+    console.log(products);
     res.status(201).json(products);
   } catch (error) {
     res.status(401).json({ message: error.message });
@@ -218,7 +245,6 @@ export const deleteproduct = async (req, res) => {
 export const getAddress = async (req, res) => {
   try {
     const address = await addressdata.find().populate("addedBy");
-
     //  console.log(address);
     res.status(201).json(address);
   } catch (error) {

@@ -22,6 +22,7 @@ import {
   getCategories,
   setUser_register,
   getUser_login,
+  Incoming_order
 } from "../controllers/cms_controller.js";
 
 
@@ -45,6 +46,7 @@ router.get("/login_data", Authenticate, getAll);
 
 router.get("/order_data", Authenticate, getOrder);
 router.get("/order_data/:id", Authenticate, getOrderData);
+router.post("/Incoming_order",Authenticate, Incoming_order);
 
 router.get("/setting", Authenticate, getAdmin);
 router.get("/addAddress", Authenticate, addAddress);
