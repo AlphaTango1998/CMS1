@@ -46,7 +46,7 @@ router.get("/order_data", Authenticate, getOrder);
 router.get("/order_data/:id", Authenticate, getOrderData);
 
 router.get("/setting", Authenticate, getAdmin);
-router.get("/addAddress", Authenticate, addAddress);
+router.post("/addAddress", Authenticate, addAddress);
 router.get("/address", Authenticate, getAddress);
 router.get("/AddressDetail/:id", Authenticate, getAddressDetail);
 router.put("/EditAddress/:id", Authenticate, EditAddress);
