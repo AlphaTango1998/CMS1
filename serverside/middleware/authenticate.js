@@ -3,7 +3,7 @@ import Cmsuser from "../schema/dbschema.js";
 
 const Authenticate = async (req, res, next) => {
   try {
-    const token = req.cookies.jwtoken || req.headers.cookies || req.headers.jwtoken ;
+    const token = req.cookies.jwtoken || req.headers.cookies;
     //console.log(req.headers.cookies);
     const verifyToken = jwt.verify(token, `MYNAMEISSHUBHAMDHOOTFROMJODHPUR`);
     const rootUser = await Cmsuser.findOne({
@@ -18,7 +18,7 @@ const Authenticate = async (req, res, next) => {
     req.userID = rootUser._id;
     next();
   } catch (error) {
-    res.status(401).send("unauthorised: no token provided  ");
+    res.status(401).send("unauthorised: no token proviesd  ");
     console.log(error);
   }
 };

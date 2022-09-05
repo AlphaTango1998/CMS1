@@ -14,7 +14,8 @@ function Sidebar() {
         <nav
           id="sidebarMenu"
           className="col-md-3 col-lg-2 d-md-block "
-          style={bgbody}>
+          style={bgbody}
+        >
           <div className="position-sticky pt-3  sidebar-sticky">
             <ul className="nav flex-column">
               <li className="nav-item">
@@ -31,21 +32,24 @@ function Sidebar() {
                 <li className="nav-item ">
                   <NavLink
                     className="fs-5 text-decoration-none"
-                    to="/Categories">
+                    to="/Categories"
+                  >
                     <i className="fa-solid fa-circle-plus px-3"></i>Categories
                   </NavLink>
                 </li>
                 <li className="nav-item ">
                   <NavLink
                     className="fs-5 text-decoration-none"
-                    to="/addproduct">
+                    to="/addproduct"
+                  >
                     <i className="fa-solid fa-circle-plus px-3"></i>Add Product
                   </NavLink>
                 </li>
                 <li className="nav-item ">
                   <NavLink
                     className="fs-5 text-decoration-none"
-                    to="/productlist">
+                    to="/productlist"
+                  >
                     <i className="fa-solid fa-circle-plus px-3"></i>List Product
                   </NavLink>
                 </li>
@@ -62,7 +66,7 @@ function Sidebar() {
               </li>
               <li className="nav-item mt-3">
                 <NavLink className="fs-5 text-decoration-none " to="/address">
-                  <i className="fa-solid fa-location-pin"></i> Addresses
+                  <i class="fa-solid fa-location-pin"></i> Addresses
                 </NavLink>
               </li>
               <li className="nav-item mt-3">
@@ -72,7 +76,8 @@ function Sidebar() {
               </li>
               <li className="nav-item mt-3">
                 <NavLink className="fs-5 text-decoration-none" to="/logout">
-                  <i className="fa-solid fa-arrow-right-from-bracket px-3"></i> Logout
+                  <i className="fa-solid fa-arrow-right-from-bracket px-3"></i>
+                  logout
                 </NavLink>
               </li>
             </ul>

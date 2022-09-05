@@ -10,17 +10,16 @@ function Login_user() {
     const [userData, setUserData] = useState();
     // eslint-disable-next-line
     const [cookies, setCookie] = useCookies(['user']);
-    let token_value = cookies.jwtoken;
+    let token_value=cookies.jwtoken;
        useEffect(()=>{
         getAllUser();
-       
       },[]);
     const getAllUser = async() => {
        const user_data = await getAll( token_value);
            setUserData(user_data);
 
   };
-  
+
   return (
     <>
       <div>
@@ -50,7 +49,6 @@ function Login_user() {
                       <th>Email</th>
                       <th>Phone</th>
                       <th>DOB</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -62,7 +60,7 @@ function Login_user() {
                         <td> {value.email} </td>
                         <td> {value.phone} </td>
                         <td> {value.dob} </td>
-                        </tr>
+                      </tr>
                     ))}
                   </tbody>
                 </table>
