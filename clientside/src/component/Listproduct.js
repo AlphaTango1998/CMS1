@@ -54,8 +54,8 @@ function Listproduct() {
 
                   <thead>
                     <tr>
-                      <th>s.no</th>
-                      <th>Product Name</th>
+                      <th >s.no</th>
+                      <th >Product Name</th>
                       <th >Category</th>
                       <th >Price</th>
                       <th >Stock Value</th>
