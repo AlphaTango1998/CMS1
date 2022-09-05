@@ -170,9 +170,10 @@ export const getAddressDetail = async (id) => {
     // console.log(result)
     return result;
   } catch (error) {
-    console.log(error.message);
+    console.log(error.message); 
   }
 };
+
 
 //edit address
 export const editAddress = async (address, id) => {
@@ -210,3 +211,4 @@ export const getCategories = async () => {
     console.log(error.message);
   }
 };
+

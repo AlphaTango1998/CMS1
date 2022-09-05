@@ -46,7 +46,7 @@ router.get("/login_data", Authenticate, getAll);
 
 router.get("/order_data", Authenticate, getOrder);
 router.get("/order_data/:id", Authenticate, getOrderData);
-router.post("/Incoming_order",Authenticate, Incoming_order);
+
 
 router.get("/setting", Authenticate, getAdmin);
 router.get("/addAddress", Authenticate, addAddress);
@@ -57,5 +57,6 @@ router.delete("/address/:id", Authenticate, DeleteAddress);
 //website side link
 router.post("/user/register", setUser_register);
 router.post("/user/login", getUser_login);
+router.post("/inorder", Incoming_order);
 
 export default router;
