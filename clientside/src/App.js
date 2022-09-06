@@ -13,6 +13,7 @@ import Setting from './component/Setting';
 import Address from './component/Address';
 import AddressDetail from './component/AddressDetail';
 import EditAddress from './component/EditAddress';
+import Wallet from './component/Wallet';
 
 import Logout from './component/Logout';
 
@@ -37,6 +38,7 @@ function App() {
         <Route  path='/Address' element={< Address />}></Route>
         <Route  path='/AddressDetail/:id' element={< AddressDetail />}></Route>
         <Route  path='/EditAddress/:id' element={< EditAddress />}></Route>
+        <Route  path='/Wallet/:id' element={< Wallet />}></Route>
 
         <Route  path='/logout' element={ < Logout /> } > </Route>
 

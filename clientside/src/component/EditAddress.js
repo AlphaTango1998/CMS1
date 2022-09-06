@@ -52,6 +52,43 @@ function EditAddress() {
           <div className="container  col-lg-9">
             <form onSubmit={edithandleSubmit}>
               <center>
+
+
+              <div className="row mt-4 mb-4">
+                  <div className="col-lg-4">
+                    <label className="form-label">Name</label>
+                  </div>
+                  <div className="col-lg-4">
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="name"
+                      value={address.name}
+                      onChange={(e) => onValueChange(e)}
+                    />
+                  </div>
+                  <div className="col-lg-4"></div>
+                </div>
+
+                <div className="row mt-4 mb-4">
+                  <div className="col-lg-4">
+                    <label className="form-label">phone</label>
+                  </div>
+                  <div className="col-lg-4">
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="phone"
+                      value={address.phone}
+                      onChange={(e) => onValueChange(e)}
+                    />
+                  </div>
+                  <div className="col-lg-4"></div>
+                </div>
+
+
+
+
                 <div className="row mt-4 mb-4">
                   <div className="col-lg-4">
                     <label className="form-label">Address</label>

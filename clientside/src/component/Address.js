@@ -5,24 +5,21 @@ import { deleteAddress, getAddress } from "../service/api";
 import { Link } from "react-router-dom";
 function Address() {
   const [addressData, setAddress] = useState();
- 
+
   useEffect(() => {
     getAllAddress();
-  
   }, []);
   const getAllAddress = async () => {
     const address_data = await getAddress();
     setAddress(address_data);
-   console.log(address_data);
+    console.log(address_data);
     //console.log(address_data.data[0].fname);
   };
 
-
-  const deleteAddressDetail = async (id) =>{
+  const deleteAddressDetail = async (id) => {
     await deleteAddress(id);
     getAllAddress();
-    
-}
+  };
 
   return (
     <>
@@ -66,33 +63,41 @@ function Address() {
                     {addressData.data.map((value, id) => (
                       <tr key={id}>
                         <td> *</td>
-                        <td> {value.addedBy.fname} </td>
-                        <td> {value.addedBy.phone} </td>
+                        <td> {value.name} </td>
+                        <td> {value.phone} </td>
                         <td> {value.address} </td>
                         <td> {value.city} </td>
                         <td> {value.state} </td>
                         <td> {value.country} </td>
-                        <td><button className="btn btn-primary ">
-                          <Link
-                            to={`/AddressDetail/${value._id}`}
-                            style={{ textDecoration: "none" , "color": "#fff" }}
-                          >
-                            see Here 
-                          </Link>
-                        </button>
+                        <td>
+                          <button className="btn btn-primary ">
+                            <Link
+                              to={`/AddressDetail/${value._id}`}
+                              style={{ textDecoration: "none", color: "#fff" }}
+                            >
+                              see Here
+                            </Link>
+                          </button>
                         </td>
-                        <td><button className="btn btn-primary ">
-                          <Link
-                            to={`/EditAddress/${ value._id }`}
-                            style={{ textDecoration: "none" , "color": "#fff" }}
-                          >
-                            Edit 
-                          </Link>
-                        </button>
+                        <td>
+                          <button className="btn btn-primary ">
+                            <Link
+                              to={`/EditAddress/${value._id}`}
+                              style={{ textDecoration: "none", color: "#fff" }}
+                            >
+                              Edit
+                            </Link>
+                          </button>
                         </td>
-                        <td><button className="btn btn-primary " onClick={()=>{ deleteAddressDetail(value._id)} }>
-                         delete
-                        </button>
+                        <td>
+                          <button
+                            className="btn btn-primary "
+                            onClick={() => {
+                              deleteAddressDetail(value._id);
+                            }}
+                          >
+                            delete
+                          </button>
                         </td>
                       </tr>
                     ))}

@@ -39,6 +39,9 @@ function Sidebar() {
           <NavLink className="fs-5 text-decoration-none " to="/address"> <i class="fa-solid fa-location-pin"></i> Addresses</NavLink>
           </li>
           <li className="nav-item mt-3">
+          <NavLink className="fs-5 text-decoration-none " to="/wallet"> <i class="fa-solid fa-wallet"></i> Wallet</NavLink>
+          </li>
+          <li className="nav-item mt-3">
           <NavLink className="fs-5 text-decoration-none"  to="/setting"> <i className="fa-solid fa-gears px-3"></i>Setting</NavLink>
           </li>
           <li className="nav-item mt-3">
