@@ -7,6 +7,7 @@ import { useCookies } from 'react-cookie';
 // import { Link } from "react-router-dom";
 function AddressDetail() {
   const [addressData, setAddressDetail] = useState();
+
   // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(['user']);
   let token_value=cookies.jwtoken;
@@ -40,7 +41,7 @@ function AddressDetail() {
             
             <div>
 
-              { addressData ? (
+              { !addressData ? (
 
                 <div className="row mt-5">
                   <div className="card text-center">
@@ -54,12 +55,12 @@ function AddressDetail() {
                  
                   <div className="card-body row">
                   <h5 className="card-title col-sm" style={{ "color": "#fff"}}>Name</h5>
-                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.addedBy.fname}</p>
+                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.name}</p>
                   </div>
 
                   <div className="card-body row">
                   <h5 className="card-title col-sm" style={{ "color": "#fff"}}>phone</h5>
-                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.addedBy.phone}</p>
+                   <p className="card-text col-sm" style={{ "color": "#fff"}}> {addressData.data.phone}</p>
                   </div>
 
                   <div className="card-body row">

@@ -214,3 +214,43 @@ export const getCategories = async () => {
 };
 
 
+
+//setwallet
+export const addwallet = async (data,id) => {
+  try {
+    const result = await axios.post(`http://localhost:8000/addWallet/${id}`,data);
+    // console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+//get wallet amount
+export const getWalletAmount = async (id) => {
+  
+  try {
+  //  console.log("hii");
+    const result = await axios.get(`http://localhost:8000/getWalletAmount/${id}`);
+    // console.log(result)
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+
+
+    // Wallet
+export const getTransaction = async (id) => {
+  
+  try {
+    const result = await axios.get(`http://localhost:8000/getTransaction/${id}`);
+    // console.log(result)
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+

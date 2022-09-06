@@ -20,11 +20,11 @@ function Address() {
   const getAllAddress = async () => {
     const address_data = await getAddress(token_value);
     setAddress(address_data);
-    //console.log(address_data);
-    //console.log(address_data.data[0].fname);
+
   };
 
   const deleteAddressDetail = async (id) => {
+
     await deleteAddress(id, token_value);
     getAllAddress();
   };
@@ -70,10 +70,14 @@ function Address() {
                   <tbody>
                     {addressData.data.map((value, id) => (
                       <tr key={id}>
-                        <td> {id + 1}</td>
 
-                        <td> {value.addedBy.fname} </td>
-                        <td> {value.addedBy.phone} </td>
+                      
+                        <td> {id + 1}</td>
+                        <td> {value.name} </td>
+                        <td> {value.phone} </td>
+
+                        
+
                         <td> {value.address} </td>
                         <td> {value.city} </td>
                         <td> {value.state} </td>

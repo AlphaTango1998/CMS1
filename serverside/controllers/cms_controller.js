@@ -4,6 +4,7 @@ import ProductData from "../schema/productschema.js";
 import Orderdata from "../schema/orderschema.js";
 import Inorder from "../schema/orderschema.js"
 import addressdata from "../schema/addressschema.js";
+import walletdata from "../schema/walletschema.js";
 import categriesdata from "../schema/categriesschems.js";
 import bcrypt from "bcryptjs";
 
@@ -161,17 +162,21 @@ export const getAdmin = async (req, res) => {
     res.status(201).json(users);
   } catch (error) {
     res.status(401).json({ message: error.message });
-  }
+  } 
 };
 
 //add address data
 export const addAddress = async (req, res) => {
-  const { address, city, state, country, addedBy } = req.body;
+
+    const { name,phone,address, city, state, country, addedBy } = req.body;
+    //check filed is empty or not
+  
+    if (!name || !phone || !address || !city || !state || !country) {
+      return res.status(422).json({ error: "plz filled the fields properly" });
+    }
+
   //check filed is empty or not
 
-  if (!address || !city || !state || !country) {
-    return res.status(422).json({ error: "plz filled the fields properly" });
-  }
 
   try {
     const newAddress = new addressdata({
@@ -227,6 +232,8 @@ export const totalSales = async (req, res) => {
 export const productlist = async (req, res) => {
   try {
     
+
+   
     const products = await ProductData.find();
     console.log(products);
     res.status(201).json(products);
@@ -243,6 +250,7 @@ export const deleteproduct = async (req, res) => {
     res.status(401).json({ message: error.message });
   }
 };
+
 
 //allAddressData
 export const getAddress = async (req, res) => {
@@ -266,11 +274,13 @@ export const getAddressDetail = async (req, res) => {
   } catch (error) {
     res.status(401).json({ message: error.message });
   }
+
 };
 
 //edit address
 export const EditAddress = async (req, res) => {
-   const address1 = req.body;
+
+    const address1 = req.body;
   const id = req.params.id;
     try {
     const address2 = await addressdata.findByIdAndUpdate(id, address1);
@@ -384,3 +394,70 @@ export const getUser_login = async (req, res) => {
   }
 };
 
+
+
+//add in wallet 
+export const addWallet = async (req, res) => {
+  
+  const { transaction } = req.body;
+  const id = req.params.id;
+
+
+  // const editwalletdata = new Userdata(walletdata);
+  // console.log(req.body,req.params.id);
+  // console.log(transaction);
+  // console.log(id);
+  console.log("hh");
+  //check filed is empty or not
+  
+
+  if (!transaction || !req.params.id ) {
+    return res.status(422).json({ error: "plz filled the fields properly" });
+  }
+  try {
+    const newTransaction =  new walletdata({ transaction:transaction,userId:id });
+    const wallet1 =await Userdata.findOneAndUpdate( { _id: req.params.id } , {$inc: {wallet:transaction} } );
+    //const wallet = await Userdata.findOneAndUpdate(
+    //   { _id: req.params.id },
+    //   {$set: req.body }
+ // console.log(wallet1);
+    await newTransaction.save();
+    res.status(201).json(wallet1);
+  } catch (error) {;
+    console.log(error);
+  }
+  
+};
+
+//get user wallet balance
+export const getWalletAmount = async (req, res) => {
+  try {
+    // console.log(req.params.id)
+    const walletamount = await Userdata.findById({_id: req.params.id});
+    // console.log(wallet);
+    // const walletdata = await walletdata.aggregate([{ $group: { _id: null, sum_val: { $sum: "$transaction" } } }])
+    
+    // console.log(wallet);
+    
+    res.status(201).json(walletamount);
+  } catch (error) {
+    res.status(401).json({ message: error.message });
+  }
+};
+
+
+//wallet data
+export const getTransaction = async (req, res) => {
+
+  try {
+    // console.log("id",req.params.id);
+    const transaction = await walletdata.find({userId:req.params.id});
+    // console.log(transaction);
+
+    // console.log(transaction);
+    res.status(201).json(transaction);
+  } catch (error) {
+    console.log(error);
+    res.status(401).json({ message: error.message });
+  }
+};

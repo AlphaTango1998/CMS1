@@ -17,11 +17,6 @@ function Order() {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLPSwWEGlf4bXeS8c32qyuDS6W6X9QfbKXw&usqp=CAU";
 
 
-    const [orderData, setOrderData] = useState(  );
-    // eslint-disable-next-line
-    const [cookies, setCookie] = useCookies(['user']);
-    let token_value=cookies.jwtoken;
-
 
 
     const getAllOrder = async () => {
