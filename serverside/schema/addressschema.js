@@ -1,15 +1,4 @@
-
 import mongoose from 'mongoose';
-// import { Schema,model } from 'mongoose';
-// import userdatas from './userschema';
-// const addressSchema = new mongoose.Schema({
-//     addedBy:ObjectId,
-//     address:String,
-//     city:String,
-//     state:String,
-//     country:String
-// });
-
 
 const addressSchema = new mongoose.Schema({
     addedBy:{type:mongoose.Schema.Types.ObjectId,ref:"userdatas", required:true  },
@@ -25,7 +14,5 @@ const addressSchema = new mongoose.Schema({
 })
 
 const addressdata = mongoose.model("addressdata",addressSchema);
-//  const addressdata = mongoose.model("Address",addressSchema);
-
 
 export default addressdata;

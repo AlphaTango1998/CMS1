@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 const usersSchema = new mongoose.Schema({
+
     fname:String,
     lname:String,
     email:String,
@@ -7,8 +8,9 @@ const usersSchema = new mongoose.Schema({
     dob:String,
     wallet:Number,
     password:String
+
 });
 
-const userdatas = mongoose.model("userdatas",usersSchema);
+const userdatas = mongoose.model("userdatas", usersSchema);
 
 export default userdatas;
