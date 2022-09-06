@@ -13,8 +13,10 @@ function Wallet() {
   const [walletData, setWallet] = useState(initial);
   const [transactionData, setTransaction] = useState();
   const [walletAmountData, setWalletAmount] = useState();
-  const [balance, setbalance] = useState();
+  //const [balance, setbalance] = useState();
+  // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(["user"]);
+  // eslint-disable-next-line
   let token_value = cookies.jwtoken;
 
   let { id } = useParams();
@@ -45,6 +47,7 @@ function Wallet() {
   const handleSubmit = async (e) => {
     e.preventDefault();
    // console.log("transaction add", walletData, id);
+   // eslint-disable-next-line
     const response = await addwallet(walletData, id);
     window.location.reload();
     getdata();
@@ -134,7 +137,7 @@ function Wallet() {
                               <td>{id + 1}</td>
                               <td> +{value.transaction} </td>
                             </tr>
-                            
+
                           ))}
                         </tbody>
                       </table>

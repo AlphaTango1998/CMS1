@@ -9,21 +9,15 @@ import Addproduct from "./component/Addproduct";
 import Order from "./component/Order";
 import ShowOrder from "./component/ShowOrder";
 
-<<<<<<< HEAD
+
 import Setting from './component/Setting';
 import Address from './component/Address';
 import AddressDetail from './component/AddressDetail';
 import EditAddress from './component/EditAddress';
 import Wallet from './component/Wallet';
-=======
-import Setting from "./component/Setting";
->>>>>>> 43e1e36878d26a701bc02d84a77db6db22d128a4
 
 import Listproduct from "./component/Listproduct";
 
-import Address from "./component/Address";
-import AddressDetail from "./component/AddressDetail";
-import EditAddress from "./component/EditAddress";
 import Categories from "./component/Categories";
 
 import Logout from "./component/Logout";
@@ -44,18 +38,13 @@ function App() {
           <Route path="/order" element={<Order />}></Route>
           <Route path="/ShowOrder/:id" element={<ShowOrder />}></Route>
 
-<<<<<<< HEAD
+
         <Route  path='/Setting' element={< Setting />}></Route>
         <Route  path='/Address' element={< Address />}></Route>
         <Route  path='/AddressDetail/:id' element={< AddressDetail />}></Route>
         <Route  path='/EditAddress/:id' element={< EditAddress />}></Route>
         <Route  path='/Wallet/:id' element={< Wallet />}></Route>
-=======
-          <Route path="/Setting" element={<Setting />}></Route>
-          <Route path="/Address" element={<Address />}></Route>
-          <Route path="/AddressDetail/:id" element={<AddressDetail />}></Route>
-          <Route path="/EditAddress/:id" element={<EditAddress />}></Route>
->>>>>>> 43e1e36878d26a701bc02d84a77db6db22d128a4
+
 
           <Route path="/logout" element={<Logout />}></Route>
 
