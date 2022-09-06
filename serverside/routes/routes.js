@@ -25,7 +25,6 @@ import {
   Incoming_order
 } from "../controllers/cms_controller.js";
 
-
 import Authenticate from "../middleware/authenticate.js";
 
 const router = express.Router();
@@ -47,7 +46,6 @@ router.get("/login_data", Authenticate, getAll);
 router.get("/order_data", Authenticate, getOrder);
 router.get("/order_data/:id", Authenticate, getOrderData);
 
-
 router.get("/setting", Authenticate, getAdmin);
 router.post("/addAddress", Authenticate, addAddress);
 router.get("/address", Authenticate, getAddress);
@@ -58,6 +56,5 @@ router.delete("/address/:id", Authenticate, DeleteAddress);
 router.post("/user/register", setUser_register);
 router.post("/user/login", getUser_login);
 router.post("/inorder", Incoming_order);
-
 
 export default router;
