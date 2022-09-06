@@ -95,13 +95,14 @@ export const Incoming_order = async (req, res) => {
   try {
     const Iorder = new Inorder({
 
-      email: uid,
-      productname: pname,
-      category: category,
-      quantity: qty,
-      price: price,
-      totalamount: tamount
-
+      id : uid,
+      order :{
+       // srn : 
+        productname: pname,
+        category: category,
+        quantity: qty,
+        price: price,
+        totalamount: tamount} 
     });
       await Iorder.save();
       res.status(201).json(Iorder);
