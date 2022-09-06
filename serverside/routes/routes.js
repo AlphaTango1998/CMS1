@@ -22,9 +22,7 @@ import {
   getCategories,
   setUser_register,
   getUser_login,
-
   Incoming_order
-
 } from "../controllers/cms_controller.js";
 
 
