@@ -5,6 +5,7 @@ function Sidebar() {
     minHeight: "100vh",
     minWidth: "100%",
     backgroundColor: "#EAE3D2",
+
     paddingLeft: "100px",
   };
 
@@ -78,6 +79,7 @@ function Sidebar() {
             </ul>
           </div>
         </nav>
+
       </div>
     </>
   );

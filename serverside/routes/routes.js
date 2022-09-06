@@ -30,6 +30,7 @@ import {
 
 import Authenticate from "../middleware/authenticate.js";
 
+
 const router = express.Router();
 router.post("/register", addUser);
 router.post("/login", getUser);

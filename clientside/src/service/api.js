@@ -175,6 +175,7 @@ export const getAddressDetail = async (id) => {
 };
 
 
+
 //edit address
 export const editAddress = async (address, id) => {
   try {
@@ -211,4 +212,5 @@ export const getCategories = async () => {
     console.log(error.message);
   }
 };
+
 

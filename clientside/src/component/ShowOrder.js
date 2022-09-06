@@ -37,7 +37,9 @@ function ShowOrder() {
         </div>
 
         <div className="col-lg-9">
+
           {!oneData ? (
+
             <div className="row mt-5">
               <div className="card text-center">
                 <div className="card-header">data not found</div>

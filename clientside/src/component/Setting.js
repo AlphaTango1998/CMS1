@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { getAdmin } from "../service/api";
+
 import { useCookies } from 'react-cookie';
 function Setting() {
   const imagePath = "https://cdn1.vectorstock.com/i/thumb-large/18/05/businessman-or-programmer-avatar-profile-userpic-vector-7471805.jpg";
@@ -21,6 +22,7 @@ function Setting() {
     //console.log(admin_data.data[0].fname);
   };
 
+
   return (
     <>
       <div>
@@ -34,10 +36,15 @@ function Setting() {
             <Sidebar />
           </div>
           <div className="col-lg-9">
+          <div>
+
+            
           <h3 className="text-center">Admin Details </h3> 
             <div>
 
+
               { !userData ? (
+
 
                
                <div className="row mt-5">
@@ -74,6 +81,8 @@ function Setting() {
           </div>
         </div>
       </div>
+        </div>
+       
     </>
   );
 }
