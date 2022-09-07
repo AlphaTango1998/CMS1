@@ -88,9 +88,9 @@ export const getOrder = async (req, res) => {
 //createOrder
 export const Incoming_order = async (req, res) => {
 
-  const { uid, pname, category, qty, price, tamount } = req.body;
+  const { uid, order } = req.body;
 
-  if (!uid || !pname || !category || !qty || !price || !tamount ) {
+  if (!uid ||!order ) {
     return res.status(422).json({ error: "Order data not complete" });
   }
   try {
@@ -98,7 +98,6 @@ export const Incoming_order = async (req, res) => {
 
       id : uid,
       order :{
-       // srn : 
         productname: pname,
         category: category,
         quantity: qty,
