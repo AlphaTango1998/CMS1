@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { getOrder } from "../service/api";
+// eslint-disable-next-line
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
@@ -13,19 +14,16 @@ function Order() {
   const [cookies, setCookie] = useCookies(["user"]);
 
   let token_value = cookies.jwtoken;
-  const imgpath =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLPSwWEGlf4bXeS8c32qyuDS6W6X9QfbKXw&usqp=CAU";
 
 
+  const getAllOrder = async () => {
+    const order_data = await getOrder(token_value);
+    setOrderData(order_data.data);
+  };
 
-    const getAllOrder = async () => {
-      const order_data = await getOrder(token_value);
-      setOrderData(order_data.data);
-    };
-
-    useEffect(() => {
-      getAllOrder();
-    }, []);
+  useEffect(() => {
+    getAllOrder();
+  }, []);
 
 
   return (
@@ -52,39 +50,37 @@ function Order() {
                 </div>
               ) : (
                 <div>
-                  {orderData.map((value, id) => (
-                    <table className="table">
+                  <table className="table">
 
-                      <thead>
-                        <tr>
-                          <th >Customer</th>
-                          <th >Product Name</th>
-                          <th >Category</th>
-                          <th >Price</th>
-                          <th >Stock Value</th>
-                          <th >Description</th>
-                          <th >Delete</th>
+                    <thead>
+                      <tr>
+                        <th >Sr. no</th>
+                        <th >Customer</th>
+                        <th >Product Name</th>
+                        <th >Category</th>
+                        <th >Quantity</th>
+                        <th >Price</th>
+                        <th >Total Amount</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      {orderData.data.map((value, ide) =>
+                        <tr key={ide}>
+                          <td > {ide + 1}</td>
+                          <td > {value.id}</td>
+                          <td > {value.productname} </td>
+                          <td > {value.category} </td>
+                          <td > {value.qunatity} </td>
+                          <td > {value.price} </td>
+                          <td > {value.totalamount} </td>
                         </tr>
-                      </thead>
-
-                      <tbody>
-                        {
-                          orderData.data.map((value, id) =>
-                            <tr key={id}>
-                              <td > {id + 1}</td>
-                              <td > {value.name} </td>
-                              <td > {value.category} </td>
-                              <td > {value.price} </td>
-                              <td > {value.stockvalue} </td>
-                              <td > {value.description} </td>
-                              </tr>
-                          )
-                        }
-                      </tbody>
-                    </table>
-                  ))}
+                      )}
+                    </tbody>
+                  </table>
                 </div>
               )}
+
             </div>
           </div>
         </div>
