@@ -21,6 +21,8 @@ function Order() {
     setOrderData(order_data.data);
   };
 
+  
+
   useEffect(() => {
     getAllOrder();
   }, []);
@@ -55,12 +57,8 @@ function Order() {
                     <thead>
                       <tr>
                         <th >Sr. no</th>
-                        <th >Customer</th>
-                        <th >Product Name</th>
-                        <th >Category</th>
-                        <th >Quantity</th>
-                        <th >Price</th>
-                        <th >Total Amount</th>
+                        <th >Customer ID</th>
+                        <th >Details</th>
                       </tr>
                     </thead>
 
@@ -69,16 +67,13 @@ function Order() {
                         <tr key={ide}>
                           <td > {ide + 1}</td>
                           <td > {value.id}</td>
-                          <td > {value.order.productname} </td>
-                          <td > {value.category} </td>
-                          <td > {value.qunatity} </td>
-                          <td > {value.price} </td>
-                          <td > {value.totalamount} </td>
+                          <td >  </td>
                         </tr>
                       )}
                     </tbody>
                   </table>
                 </div>
+                
               )}
 
             </div>

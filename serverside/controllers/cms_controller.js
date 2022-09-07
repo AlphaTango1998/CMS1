@@ -90,8 +90,8 @@ export const Incoming_order = async (req, res) => {
 
   const { uid, order, pname, category, qty, price, tamount } = req.body;
 
-  if (!uid || !order  ) {
-    return res.status(422).json({ error: "Order data not complete" });
+  if (!uid || !order  || !pname || !category || !qty || !price || !tamount ) {
+    return res.status(422).json({ error: "Incomplete Order" });
   }
   try {
     const Iorder = new Inorder({
