@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 const orderSchema = new mongoose.Schema({
  
   id :String,
-  order: Array
+  product:Array,
+  category:Array,
+  quantity:Array,
+  price:Array,
+  totalamount:Number
 
 });
 

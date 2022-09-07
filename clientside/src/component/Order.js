@@ -21,7 +21,7 @@ function Order() {
     setOrderData(order_data.data);
   };
 
-  
+
 
   useEffect(() => {
     getAllOrder();
@@ -53,7 +53,6 @@ function Order() {
               ) : (
                 <div>
                   <table className="table">
-
                     <thead>
                       <tr>
                         <th >Sr. no</th>
@@ -67,13 +66,19 @@ function Order() {
                         <tr key={ide}>
                           <td > {ide + 1}</td>
                           <td > {value.id}</td>
-                          <td >  </td>
+                          <td >
+                            <button className="btn btn-warning ">
+                              <Link to={`/ShowOrder/${value._id}`} style={{ textDecoration: "none" }}>
+                                {" "}See Full{" "}
+                              </Link>
+                            </button>
+                          </td>
                         </tr>
                       )}
                     </tbody>
                   </table>
                 </div>
-                
+
               )}
 
             </div>
