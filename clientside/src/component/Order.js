@@ -69,7 +69,7 @@ function Order() {
                         <tr key={ide}>
                           <td > {ide + 1}</td>
                           <td > {value.id}</td>
-                          <td > {value.order.(0).productname} </td>
+                          <td > {value.order.productname} </td>
                           <td > {value.category} </td>
                           <td > {value.qunatity} </td>
                           <td > {value.price} </td>
