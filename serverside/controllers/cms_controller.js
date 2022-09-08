@@ -185,6 +185,8 @@ export const addAddress = async (req, res) => {
       state,
       country,
       addedBy,
+      name,
+      phone
     });
 
     await newAddress.save();
