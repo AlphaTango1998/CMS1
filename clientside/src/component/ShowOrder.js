@@ -10,23 +10,22 @@ function ShowOrder() {
   // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(["user"]);
   let token_value = cookies.jwtoken;
-  
+
   let { id } = useParams();
 
-  const [oneData, setData] = useState();
+  const [orderData, setData] = useState();
 
   useEffect(() => {
     getAllOrder();
   }, []);
 
+
   const getAllOrder = async () => {
     const order_data = await getorderData(id, token_value);
     setData(order_data.data);
-    console.log(order_data.data);
-    //  console.log(oneData.data.username)
   };
 
-  
+
   return (
     <>
       <div className="row">
@@ -42,7 +41,9 @@ function ShowOrder() {
 
         <div className="col-lg-9">
 
-          {!oneData ? (
+
+
+          {!orderData ? (
 
             <div className="row mt-5">
               <div className="card text-center">
@@ -51,40 +52,48 @@ function ShowOrder() {
             </div>
           ) : (
             <div>
-               <h3 className="px-5 mx-5 mb-3"> Order Description </h3>
+              <center>
+                <h3 > Order Description </h3>
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Category</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Sub total</th>
+                    </tr>
+                    
 
-                  <table className="table">
-                    <thead>
+                  </thead>
+                  <tbody>
+
+
+
+                    {orderData.product.map((value, index) =>
                       <tr>
-                        <th>Sr. No</th>
-                        <th>Product name</th>
-                        <th>Category</th>
-                        <th>Quanity</th>
-                        <th>Price</th>
-                        <th>Total amount</th>
+                        <td>{orderData.product[index]}</td>
+                        <td>{orderData.category[index]}</td>
+                        <td>{orderData.quantity[index]}</td>
+                        <td>{orderData.price[index]}</td>
+                        <td>{orderData.quantity[index] * orderData.price[index]}</td>
                       </tr>
-                    </thead>
-                    <tbody>
-                     
-                        <tr key={id}>
-                          <td>{id + 1}</td>
-                          <td>{oneData.product}</td>
-                          <td>{oneData.category}</td>
-                          <td>{oneData.quantity}</td>
-                          <td>{oneData.price}</td>
-                          <td>{oneData.totalamount}</td>
-                        </tr>
-                       
-                    </tbody>
-                  </table>
+                    )}
+                    <tr>
+                    <td colSpan={5}><h4>Total Amount to be paid : ₹ {orderData.totalamount}</h4></td>
+                    </tr>
+                  </tbody>
+                </table>
 
-               
+
+
+              </center>
             </div>
           )}
         </div>
-        </div>
-      </>
+      </div>
+    </>
   );
 
- }
+}
 export default ShowOrder;

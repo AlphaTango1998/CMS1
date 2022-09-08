@@ -44,18 +44,7 @@ export const getOrder = async () => {
     console.log(error.message);
   }
 };
-//get all order data  into one order
-export const getorderData = async (id) => {
-  try {
-    const result = await axios.get(`http://localhost:8000/order_data/${id}`, {
-      withCredentials: true,
-    });
-    //console.log(result)
-    return result;
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+
 //Add product component
 export const productAdd = async (data) => {
   try {
@@ -123,6 +112,18 @@ export const getProductAll = async () => {
       withCredentials: true,
     });
     //  console.log(result)
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+//get all order data  into one order
+export const getorderData = async (id) => {
+  try {
+    const result = await axios.get(`http://localhost:8000/order_data/${id}`, {
+      withCredentials: true,
+    });
+    //console.log(result)
     return result;
   } catch (error) {
     console.log(error.message);

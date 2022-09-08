@@ -119,7 +119,6 @@ export const getOrderData = async (req, res) => {
   try {
     const orders = await Orderdata.findById(req.params.id);
     res.status(201).json(orders);
-    console.log(orders);
   } catch (error) {
     res.status(401).json({ message: error.message });
   }
@@ -231,11 +230,9 @@ export const totalSales = async (req, res) => {
   }
 };
 
+// product_list
 export const productlist = async (req, res) => {
   try {
-
-
-
     const products = await ProductData.find();
    // console.log(products);
     res.status(201).json(products);
