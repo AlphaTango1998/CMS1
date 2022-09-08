@@ -51,7 +51,7 @@ function ShowOrder() {
               </div>
             </div>
           ) : (
-            <div>
+            <div >
               <center>
                 <h3 > Order Description </h3>
                 <table className="table">
@@ -63,13 +63,12 @@ function ShowOrder() {
                       <th>Price</th>
                       <th>Sub total</th>
                     </tr>
-                    
+
 
                   </thead>
-                  <tbody>
-
-
-
+                  
+                  <tbody >
+                  
                     {orderData.product.map((value, index) =>
                       <tr>
                         <td>{orderData.product[index]}</td>
@@ -80,9 +79,11 @@ function ShowOrder() {
                       </tr>
                     )}
                     <tr>
-                    <td colSpan={5}><h4>Total Amount to be paid : ₹ {orderData.totalamount}</h4></td>
+                      <td colSpan={5}><h4>Total Amount to be paid : ₹ {orderData.totalamount}</h4></td>
                     </tr>
+                    
                   </tbody>
+                  
                 </table>
 
 

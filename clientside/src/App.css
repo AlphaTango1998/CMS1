@@ -26,6 +26,16 @@
   color: #61dafb;
 }
 
+body{
+  overflow: hidden;
+}
+.scrollable-div {
+
+ height: 540px;
+  overflow: auto;
+
+ 
+}
 
 
 .table1 {

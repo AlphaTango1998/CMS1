@@ -367,12 +367,12 @@ export const setUser_register = async (req, res) => {
 
 //website login code
 export const getUser_login = async (req, res) => {
-  console.log("hii");
+  
   const { uemail, upassword } = req.body;
   //check filed is empty or not
   console.log(uemail, upassword);
   if (!uemail || !upassword) {
-    return res.status(422).json({ error: "plz filled the fields properly" });
+    return res.status(422).json({ error: "Please fill the fields properly" });
   }
   //find email not present already
   try {
@@ -401,25 +401,13 @@ export const addWallet = async (req, res) => {
   const { transaction } = req.body;
   const id = req.params.id;
 
-
-  // const editwalletdata = new Userdata(walletdata);
-  // console.log(req.body,req.params.id);
-  // console.log(transaction);
-  // console.log(id);
-  console.log("hh");
-  //check filed is empty or not
-
-
   if (!transaction || !req.params.id) {
     return res.status(422).json({ error: "plz filled the fields properly" });
   }
   try {
     const newTransaction = new walletdata({ transaction: transaction, userId: id });
     const wallet1 = await Userdata.findOneAndUpdate({ _id: req.params.id }, { $inc: { wallet: transaction } });
-    //const wallet = await Userdata.findOneAndUpdate(
-    //   { _id: req.params.id },
-    //   {$set: req.body }
-    // console.log(wallet1);
+
     await newTransaction.save();
     res.status(201).json(wallet1);
   } catch (error) {

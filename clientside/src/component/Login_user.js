@@ -17,6 +17,7 @@ function Login_user() {
         getAllUser();
        
       },[]);
+      
     const getAllUser = async() => {
        const user_data = await getAll( token_value);
            setUserData(user_data);

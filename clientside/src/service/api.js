@@ -32,6 +32,23 @@ export const getAll = async (data) => {
     console.log(error.message);
   }
 };
+
+
+//get userdata from id
+export const getUsername = async (id) => {
+  try {
+    const result = await axios.get("http://localhost:8000/username", {
+      withCredentials: true,
+    });
+    // console.log(result)
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+
+
 //get all order data
 export const getOrder = async () => {
   try {
@@ -44,6 +61,8 @@ export const getOrder = async () => {
     console.log(error.message);
   }
 };
+
+
 
 //Add product component
 export const productAdd = async (data) => {

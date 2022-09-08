@@ -52,31 +52,40 @@ function Order() {
                 </div>
               ) : (
                 <div>
-                  <table className="table">
-                    <thead>
-                      <tr>
-                        <th >Sr. no</th>
-                        <th >Customer ID</th>
-                        <th >Details</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      {orderData.map((value, ide) =>
-                        <tr key={ide}>
-                          <td > {ide + 1}</td>
-                          <td > {value.id}</td>
-                          <td >
-                            <button className="btn btn-warning ">
-                              <Link to={`/ShowOrder/${value._id}`} style={{ textDecoration: "none" }}>
-                                {" "}See Full{" "}
-                              </Link>
-                            </button>
-                          </td>
+                  <div className="tbody">
+                    <table className="table">
+                      <thead>
+                        <tr>
+                          <th >Sr. no</th>
+                          <th >Customer ID</th>
+                          <th>Customer Name</th>
+                          <th >Details</th>
                         </tr>
-                      )}
-                    </tbody>
-                  </table>
+                      </thead>
+                    </table>
+                  </div>
+                  <div className="scrollable-div">
+
+                    <table className="table">
+
+                      <tbody className="tbody">
+
+                        {orderData.map((value, ide) =>
+                          <tr key={ide}>
+                            <td > {ide + 1}</td>
+                            <td > {value.id}</td>
+                            <td >
+                              <button className="btn btn-warning ">
+                                <Link to={`/ShowOrder/${value._id}`} style={{ textDecoration: "none" }}>
+                                  {" "}See Full{" "}
+                                </Link>
+                              </button>
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
               )}
