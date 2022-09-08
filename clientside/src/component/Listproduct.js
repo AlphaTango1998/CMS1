@@ -20,7 +20,7 @@ function Listproduct() {
   
   const getAllProduct = async () => {
     const product_data = await getProductAll(token_value);
-    setProductData(product_data);
+    setProductData(product_data.data);
   }
   const deleteUserDetails = async (id) => {
     await deleteProduct(id, token_value);
@@ -65,8 +65,7 @@ function Listproduct() {
                   </thead>
 
                   <tbody>
-                    {
-                      product.data.map((value, id) =>
+                    { product.map((value, id) =>
                         <tr key={id}>
                           <td > {id + 1}</td>
                           <td > {value.name} </td>

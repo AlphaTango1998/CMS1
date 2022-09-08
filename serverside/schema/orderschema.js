@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 const orderSchema = new mongoose.Schema({
  
-  email:String,
-  productname:String,
-  category:String,
-  quantity:Number,     
-  price:Number,
-  totalamount:Number,
-  
+  id :String,
+  product:Array,
+  category:Array,
+  quantity:Array,
+  price:Array,
+  totalamount:Number
+
 });
 
 const orderdatas = mongoose.model("orderdatas", orderSchema);

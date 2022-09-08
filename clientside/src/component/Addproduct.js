@@ -13,6 +13,7 @@ const Addproduct = () => {
   useEffect(() => {
     getdata();
   }, []);
+  
   const getdata = async () => {
     const categories_detail_data = await getCategories(token_value);
     setcategoriesData(categories_detail_data.data);

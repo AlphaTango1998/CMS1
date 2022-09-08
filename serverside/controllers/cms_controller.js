@@ -90,22 +90,23 @@ export const Incoming_order = async (req, res) => {
 
   const { uid, pname, category, qty, price, tamount } = req.body;
 
-  if (!uid || !pname || !category || !qty || !price || !tamount ) {
-    return res.status(422).json({ error: "Order data not complete" });
+  if (!uid || !pname || !category || !qty || !price || !tamount) {
+    return res.status(422).json({ error: "Incomplete Order" });
   }
   try {
     const Iorder = new Inorder({
 
-      email: uid,
-      productname: pname,
+      id: uid,
+      product: pname,
       category: category,
-      quantity: qty,
+      quantity:qty,
       price: price,
       totalamount: tamount
 
     });
-      await Iorder.save();
-      res.status(201).json(Iorder);
+    await Iorder.save();
+    console.log(Iorder);
+    res.status(201).json(Iorder);
   } catch (error) {
     res.status(401).json({ message: error.message });
   }
@@ -162,18 +163,18 @@ export const getAdmin = async (req, res) => {
     res.status(201).json(users);
   } catch (error) {
     res.status(401).json({ message: error.message });
-  } 
+  }
 };
 
 //add address data
 export const addAddress = async (req, res) => {
 
-    const { name,phone,address, city, state, country, addedBy } = req.body;
-    //check filed is empty or not
-  
-    if (!name || !phone || !address || !city || !state || !country) {
-      return res.status(422).json({ error: "plz filled the fields properly" });
-    }
+  const { name, phone, address, city, state, country, addedBy } = req.body;
+  //check filed is empty or not
+
+  if (!name || !phone || !address || !city || !state || !country) {
+    return res.status(422).json({ error: "plz filled the fields properly" });
+  }
 
   //check filed is empty or not
 
@@ -231,13 +232,11 @@ export const totalSales = async (req, res) => {
   }
 };
 
+// product_list
 export const productlist = async (req, res) => {
   try {
-    
-
-   
     const products = await ProductData.find();
-    console.log(products);
+   // console.log(products);
     res.status(201).json(products);
   } catch (error) {
     res.status(401).json({ message: error.message });
@@ -282,9 +281,9 @@ export const getAddressDetail = async (req, res) => {
 //edit address
 export const EditAddress = async (req, res) => {
 
-    const address1 = req.body;
+  const address1 = req.body;
   const id = req.params.id;
-    try {
+  try {
     const address2 = await addressdata.findByIdAndUpdate(id, address1);
     res.status(201).json(address2);
   } catch (error) {
@@ -370,12 +369,12 @@ export const setUser_register = async (req, res) => {
 
 //website login code
 export const getUser_login = async (req, res) => {
-  console.log("hii");
+  
   const { uemail, upassword } = req.body;
   //check filed is empty or not
   console.log(uemail, upassword);
   if (!uemail || !upassword) {
-    return res.status(422).json({ error: "plz filled the fields properly" });
+    return res.status(422).json({ error: "Please fill the fields properly" });
   }
   //find email not present already
   try {
@@ -400,47 +399,36 @@ export const getUser_login = async (req, res) => {
 
 //add in wallet 
 export const addWallet = async (req, res) => {
-  
+
   const { transaction } = req.body;
   const id = req.params.id;
 
-
-  // const editwalletdata = new Userdata(walletdata);
-  // console.log(req.body,req.params.id);
-  // console.log(transaction);
-  // console.log(id);
-  console.log("hh");
-  //check filed is empty or not
-  
-
-  if (!transaction || !req.params.id ) {
+  if (!transaction || !req.params.id) {
     return res.status(422).json({ error: "plz filled the fields properly" });
   }
   try {
-    const newTransaction =  new walletdata({ transaction:transaction,userId:id });
-    const wallet1 =await Userdata.findOneAndUpdate( { _id: req.params.id } , {$inc: {wallet:transaction} } );
-    //const wallet = await Userdata.findOneAndUpdate(
-    //   { _id: req.params.id },
-    //   {$set: req.body }
- // console.log(wallet1);
+    const newTransaction = new walletdata({ transaction: transaction, userId: id });
+    const wallet1 = await Userdata.findOneAndUpdate({ _id: req.params.id }, { $inc: { wallet: transaction } });
+
     await newTransaction.save();
     res.status(201).json(wallet1);
-  } catch (error) {;
+  } catch (error) {
+    ;
     console.log(error);
   }
-  
+
 };
 
 //get user wallet balance
 export const getWalletAmount = async (req, res) => {
   try {
     // console.log(req.params.id)
-    const walletamount = await Userdata.findById({_id: req.params.id});
+    const walletamount = await Userdata.findById({ _id: req.params.id });
     // console.log(wallet);
     // const walletdata = await walletdata.aggregate([{ $group: { _id: null, sum_val: { $sum: "$transaction" } } }])
-    
+
     // console.log(wallet);
-    
+
     res.status(201).json(walletamount);
   } catch (error) {
     res.status(401).json({ message: error.message });
@@ -453,7 +441,7 @@ export const getTransaction = async (req, res) => {
 
   try {
     // console.log("id",req.params.id);
-    const transaction = await walletdata.find({userId:req.params.id});
+    const transaction = await walletdata.find({ userId: req.params.id });
     // console.log(transaction);
 
     // console.log(transaction);

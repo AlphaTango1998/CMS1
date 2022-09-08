@@ -88,7 +88,7 @@ function Home() {
                 >
                   <div className="card-body p-4">
                     <h4 className="card-title">
-                      Total Order <i className="fa-regular fa-diamond px-5"></i>{" "}
+                      Total Order <i className="fa fa-diamond px-5"></i>{" "}
                     </h4>
                     <p className="h3 p-2"> {order}</p>
                     <p className="card-text">Total Order Of business</p>

@@ -102,10 +102,10 @@ function Wallet() {
                       <div>
                         <div className="row">
                           <div className="card-body">
-                            <h5 class="card-title px-4 pt-3">Total Balance</h5>
+                            <h5 className="card-title px-4 pt-3">Total Balance</h5>
                             {
                                 !walletAmountData? (
-                                <div><p class="card-text px-4 "> 
+                                <div><p className="card-text px-4 "> 
                                 data not found
                                 </p></div>
                                  ) : (
@@ -123,13 +123,13 @@ function Wallet() {
                         </div>
                       </div>
                     </div>
-                    <h5 class="card-title px-4 py-3">Transactions</h5>
+                    <h5 className="card-title px-4 py-3">Transactions</h5>
                     {!transactionData ? (
                       <div className="card text-center">
                         <div className="card-header">data not found</div>
                       </div>
                     ) : (
-                      <table class="table  table-borderless">
+                      <table className="table  table-borderless">
                         <tbody>
                           {transactionData.map((value, id) => (
                             <tr key={id}>

@@ -25,10 +25,11 @@ import {
   addWallet,
   getWalletAmount,
   getTransaction,
+
   Incoming_order
 
-
 } from "../controllers/cms_controller.js";
+
 
 import Authenticate from "../middleware/authenticate.js";
 
@@ -76,6 +77,7 @@ router.delete("/address/:id", Authenticate, DeleteAddress);
 //website side link
 router.post("/user/register", setUser_register);
 router.post("/user/login", getUser_login);
+
 router.post("/inorder", Incoming_order);
 
 

@@ -8,7 +8,9 @@ function Categories() {
   const initial = {
     cat_name: "",
   };
+  
   const [categories, setcategories] = useState(initial);
+
   const [categoriesData, setcategoriesData] = useState();
   // eslint-disable-next-line
   const [cookies, setCookie] = useCookies(["user"]);
@@ -17,6 +19,7 @@ function Categories() {
   useEffect(() => {
     getdata();
   }, []);
+  
   const getdata = async () => {
     const categories_detail_data = await getCategories(token_value);
     setcategoriesData(categories_detail_data.data);
