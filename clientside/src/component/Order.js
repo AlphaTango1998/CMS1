@@ -58,7 +58,7 @@ function Order() {
                         <tr>
                           <th >Sr. no</th>
                           <th >Customer ID</th>
-                          <th>Customer Name</th>
+                         
                           <th >Details</th>
                         </tr>
                       </thead>
